@@ -9,10 +9,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "co-views": "^0.3.0",
     "koa": "^0.18.1",
     "koa-body-parser": "^1.1.1",
     "koa-route": "^2.4.0",
     "koa-static": "^1.4.9",
-    "mysql": "^2.6.1"
+    "mysql": "^2.6.1",
+    "swig": "^1.4.2"
   }
 }
