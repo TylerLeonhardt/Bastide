@@ -1,25 +1,19 @@
 var koa = require('koa');
 var route = require('koa-route');
+var serve = require('koa-static');
+var jsonBody = require('koa-json-body');
 
 var render = require('./render');
 
-var modes = require('./config/modes.json');
+var mode = require('./mode');
+var modules = require('./config/modules.json');
 
 var app = koa();
-app.use(route.get('/', home));
+app.use(serve('site/public'));
+app.use(jsonBody());
 
-function *home() {
-  var currentDate = (new Date).getTime();
-  var currentMode;
-
-  for (var i = 0; i < modes.length; i++) {
-    if (currentDate > Date.parse(modes[i].start)) {
-      currentMode = modes[i];
-    }
-  }
-
-  console.log(currentMode);
-  this.body = yield render(currentMode.name + '/index', {});
+for (var i = 0; i < modules.length; i++) {
+  require('./modules/' + modules[i] + '/index.js')(app);
 }
 
 app.listen(8300);
