@@ -1,0 +1,9 @@
+.interest-box.hidden {
+  height: 0;
+}
+.mailing-list {
+  height: 0;
+}
+.mailing-list.shown {
+  height: auto;
+}

@@ -1,0 +1,35 @@
+{% extends "../../../site/templates/layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/modules/interest/interest.css" />
+<script src="/modules/interest/interest.js"></script>
+{% endblock %}
+
+{% block content %}
+	{% block interestButton %}
+		<div class="interest-box default-hidden shown">
+			{% block interestDescription %}
+				Are you interested?
+			{% endblock %}
+			<button onclick="Interest.sendReply('yes')">Yes</button>
+			<button onclick="Interest.sendReply('maybe')">Maybe</button>
+		</div>
+		<div class="mailing-list default-hidden">
+			{% block mailingListDescription %}
+				<h1>Thanks!</h1>
+				<h2>Stay in the loop?</h2>
+				<form onsubmit="Interest.mailSignup(email.value);return false;">
+					<input type="text" name="email" placeholder="kate@kde.org">
+					<input type="submit" value="Let me know">
+				</form>
+				{% block mailingListSubDescription %}
+					We'll only email you when there's important news, like registration opening. Promise.
+				{% endblock %}
+			{% endblock %}
+		</div>
+		<div class="thanks default-hidden">
+			Hope to see you soon.
+		</div>
+	{% endblock %}
+{% endblock %}
+
