@@ -25,3 +25,21 @@ function ajax(url, data, callback) {
 
 }
 
+function addClass(selector, className) {
+  var element = document.querySelector(selector);
+  var classes = element.className.split(" ");
+  if (classes.indexOf(className) === -1)
+    classes.push(className);
+  element.className = classes.join(" ");
+}
+
+function removeClass(selector, className) {
+  var element = document.querySelector(selector);
+  var classes = element.className.split(" ");
+  var i = classes.indexOf(className);
+  if (i !== -1)
+    classes.splice(i, 1);
+
+  element.className = classes.join(" ");
+}
+
