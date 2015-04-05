@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Knight Hacks{% endblock %}</title>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<link rel="stylesheet" type="text/css" href="/css/layout.css" />
+		<script src="/js/layout.js"></script>
+		{% block head %}
+		{% endblock %}
+	</head>
+	<body>
+		<div class="header">
+			<a href='/'><h1>Knight Hacks</h1></a>
+		</div>
+
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>
+
