@@ -1,6 +1,7 @@
 var route = require('koa-route');
 var mode = require('../../mode');
 var render = require('../../render');
+var db = require('../../database');
 
 module.exports = function(app) {
   app.use(route.post('/api/interest/signup', interest_signup));
@@ -15,6 +16,9 @@ module.exports = function(app) {
 
   function *interest_signup() {
     if (restrictAccess(this)) return;
+	var response = this.request.body.reply;
+
+	yield db.query("INSERT into `interests` (response) VALUES (" + db.escape(response) + ")");
 
     this.body = "{}";
   }
