@@ -1,9 +1,13 @@
-.interest-box.hidden {
-  height: 0;
+.default-hidden {
+  opacity: 0;
+  transition: all 1s ease;
+  transform: rotateX(-90deg);
+  overflow: hidden;
+  max-height: 0;
 }
-.mailing-list {
-  height: 0;
-}
-.mailing-list.shown {
-  height: auto;
+
+.default-hidden.shown {
+  opacity: 1;
+  transform: rotateZ(0);
+  max-height: 500px;
 }

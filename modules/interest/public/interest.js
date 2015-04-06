@@ -2,8 +2,14 @@ window.Interest = (function() {
   return {
     sendReply: function(reply) {
       ajax("/api/interest/signup", { reply: reply }, function(data) {
-        document.querySelector(".interest-box").className += " hidden";
-        document.querySelector(".mailing-list").className += " shown";
+        removeClass(".interest-box", "shown");
+        addClass(".mailing-list", "shown");
+      });
+    },
+    mailSignup: function(email) {
+      ajax("/api/interest/newsletter", { email: email }, function(data) {
+        removeClass(".mailing-list", "shown");
+        addClass(".thanks", "shown");
       });
     }
   };
