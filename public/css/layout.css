@@ -1,0 +1,95 @@
+html, body {
+  margin: 0;
+}
+
+body {
+  background: #fff;
+  font-family: Lato;
+}
+
+.header {
+  padding: 10px;
+  text-align: center;
+  font-family: Oswald, sans-serif;
+  font-size: 40px;
+  background: #fee4a7;
+}
+
+.content {
+  background: #fff;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+.box {
+  display: block;
+  height: 300px;
+  background: #fff;
+  padding: 8px;
+  text-align: center;
+}
+
+.box button, .box input[type=submit] {
+  width: 150px;
+  height: 100px;
+  padding: 10px;
+  text-align: center;
+  font-size: 40px;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 0;
+  background: #7EC08D;
+  outline: none;
+  font-family: Oswald;
+  font-weight: bold;
+  border-radius: 10px;
+  border-bottom: #68A075 solid 5px;
+  border-right: solid 5px #68A075;
+  vertical-align: top;
+}
+
+.box button.yellow {
+  background: #83E7C1;
+  border-bottom: #6EBA9D solid 5px;
+  border-right: solid 5px #6EBA9D;
+}
+
+.box input[type=submit] {
+  font-size: 25px;
+  height: 70px;
+}
+
+.box button:hover {
+  animation: jiggly 0.3s infinite;
+}
+
+.box input[type=text] {
+  border: solid 1px #ABABAB;
+  font-size: 33px;
+  height: 58px;
+  vertical-align: bottom;
+  padding: 5px;
+  outline: none;
+}
+
+@keyframes jiggly {
+  0% {
+    transform: rotate(10deg);
+  }
+  49% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
