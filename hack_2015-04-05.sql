@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 10.0.14-MariaDB)
 # Database: hack
-# Generation Time: 2015-04-06 02:35:44 +0000
+# Generation Time: 2015-04-06 02:47:59 +0000
 # ************************************************************
 
 
@@ -18,6 +18,19 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table emails
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `emails`;
+
+CREATE TABLE `emails` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 # Dump of table interests

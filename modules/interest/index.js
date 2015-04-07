@@ -17,7 +17,6 @@ module.exports = function(app) {
   function *interest_signup() {
     if (restrictAccess(this)) return;
 	var response = this.request.body.reply;
-
 	yield db.query("INSERT into `interests` (response) VALUES (" + db.escape(response) + ")");
 
     this.body = "{}";
@@ -25,6 +24,8 @@ module.exports = function(app) {
 
   function *email_signup() {
     if (restrictAccess(this)) return;
+	var email = this.request.body.email;
+	yield db.query("INSERT into `emails` (email) VALUES (" + db.escape(email) + ")");
 
     this.body = "{}";
   }
