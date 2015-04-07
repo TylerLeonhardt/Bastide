@@ -7,14 +7,14 @@
 
 {% block content %}
 	{% block interestButton %}
-		<div class="interest-box default-hidden shown">
+		<div class="box interest-box default-hidden shown">
 			{% block interestDescription %}
-				Are you interested?
+				<h1>Are you interested?</h1>
 			{% endblock %}
-			<button onclick="Interest.sendReply('yes')">Yes</button>
-			<button onclick="Interest.sendReply('maybe')">Maybe</button>
+			<button onclick="Interest.sendReply('yes')">Yes!</button>
+			<button class="yellow" onclick="Interest.sendReply('maybe')">Maybe</button>
 		</div>
-		<div class="mailing-list default-hidden">
+		<div class="box mailing-list default-hidden">
 			{% block mailingListDescription %}
 				<h1>Thanks!</h1>
 				<h2>Stay in the loop?</h2>
@@ -27,7 +27,7 @@
 				{% endblock %}
 			{% endblock %}
 		</div>
-		<div class="thanks default-hidden">
+		<div class="box thanks default-hidden">
 			Hope to see you soon.
 		</div>
 	{% endblock %}
