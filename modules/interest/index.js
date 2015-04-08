@@ -5,6 +5,7 @@ var db = require('../../database');
 
 module.exports = function(app) {
   app.use(route.post('/api/interest/signup', interest_signup));
+  app.use(route.post('/api/interest/school', school_signup));
   app.use(route.post('/api/interest/newsletter', email_signup));
   app.use(route.get('/', home));
 
@@ -18,6 +19,14 @@ module.exports = function(app) {
     if (restrictAccess(this)) return;
 	var response = this.request.body.reply;
 	yield db.query("INSERT into `interests` (response) VALUES (" + db.escape(response) + ")");
+
+    this.body = "{}";
+  }
+
+  function *school_signup() {
+    if (restrictAccess(this)) return;
+	var response = this.request.body.school;
+	yield db.query("INSERT into `schools` (school) VALUES (" + db.escape(response) + ")");
 
     this.body = "{}";
   }

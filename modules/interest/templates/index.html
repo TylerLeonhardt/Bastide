@@ -14,10 +14,19 @@
 			<button onclick="Interest.sendReply('yes')">Yes!</button>
 			<button class="yellow" onclick="Interest.sendReply('maybe')">Maybe</button>
 		</div>
+		<div class="box school-box default-hidden">
+			{% block schoolDescription %}
+				<h1>What school do you attend?</h1>
+			{% endblock %}
+			<form onsubmit="Interest.schoolSignup(school.value);return false;">
+				<input type="text" name="school" placeholder="UCF, Lake Mary High">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
 		<div class="box mailing-list default-hidden">
 			{% block mailingListDescription %}
-				<h1>Thanks!</h1>
-				<h2>Stay in the loop?</h2>
+				<h1>Got it, thanks!</h1>
+				<h2>Want to stay in the loop?</h2>
 				<form onsubmit="Interest.mailSignup(email.value);return false;">
 					<input type="text" name="email" placeholder="kate@kde.org">
 					<input type="submit" value="Let me know">
