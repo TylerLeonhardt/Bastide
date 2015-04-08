@@ -18,15 +18,18 @@ module.exports = function(app) {
   function *interest_signup() {
     if (restrictAccess(this)) return;
 	var response = this.request.body.reply;
-	yield db.query("INSERT into `interests` (response) VALUES (" + db.escape(response) + ")");
 
-    this.body = "{}";
+    var token = (new Date).getTime().toString(36) + Math.random().toString(36);
+
+	yield db.query("INSERT into `interests` (response, token) VALUES (" + db.escape(response) + "," + db.escape(token) + ")");
+
+    this.body = { token: token };
   }
 
   function *school_signup() {
     if (restrictAccess(this)) return;
 	var response = this.request.body.school;
-	yield db.query("INSERT into `schools` (school) VALUES (" + db.escape(response) + ")");
+	yield db.query("UPDATE `interests` SET `school` = " + db.escape(response) + " WHERE `token` = " + db.escape(this.request.body.token));
 
     this.body = "{}";
   }
@@ -34,7 +37,7 @@ module.exports = function(app) {
   function *email_signup() {
     if (restrictAccess(this)) return;
 	var email = this.request.body.email;
-	yield db.query("INSERT into `emails` (email) VALUES (" + db.escape(email) + ")");
+	yield db.query("UPDATE `interests` SET `email` = " + db.escape(email) + " WHERE `token` = " + db.escape(this.request.body.token));
 
     this.body = "{}";
   }
