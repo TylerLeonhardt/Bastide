@@ -3,6 +3,11 @@ html, body {
 }
 
 body {
+  background: url("../img/carina-nebula.jpg");
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Lato";
   color: #fff;
 }
@@ -93,13 +98,20 @@ a:hover {
 }
 
 .footer {
+  bottom: 0;
+  position: fixed;
   text-align: center;
+  width: 100%;
 }
 
 .footer .icon {
   font-size: 35px;
   margin: 0 5px;
   text-decoration: none;
+}
+
+.footer .cc-attribution {
+  font-size: 10px;
 }
 
 @font-face {
