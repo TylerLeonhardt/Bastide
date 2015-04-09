@@ -3,25 +3,21 @@ html, body {
 }
 
 body {
-  background: #fff;
-  font-family: Lato;
+  font-family: "Lato";
+  color: #fff;
 }
 
 .header {
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   font-family: Oswald, sans-serif;
   font-size: 40px;
-  background: #fee4a7;
-}
-
-.content {
-  background: #fff;
 }
 
 a {
-  color: #333;
+  color: #FFF;
   text-decoration: none;
+  text-shadow: 0 0 10px #000;
 }
 
 a:hover {
@@ -32,8 +28,6 @@ a:hover {
 .box {
   display: block;
   height: 300px;
-  background: #fff;
-  padding: 8px;
   text-align: center;
 }
 
@@ -47,20 +41,21 @@ a:hover {
   cursor: pointer;
   transition: all 0.25s ease;
   border: 0;
-  background: #7EC08D;
+  background: rgba(0,0,0,0.5);
   outline: none;
   font-family: Oswald;
   font-weight: bold;
   border-radius: 10px;
-  border-bottom: #68A075 solid 5px;
-  border-right: solid 5px #68A075;
+  /* border-bottom: #68A075 solid 5px; */
+  /* border-right: solid 5px #68A075; */
   vertical-align: top;
+  color: #fff;
 }
 
 .box button.yellow {
-  background: #83E7C1;
-  border-bottom: #6EBA9D solid 5px;
-  border-right: solid 5px #6EBA9D;
+  /* background: #83E7C1; */
+  /* border-bottom: #6EBA9D solid 5px; */
+  /* border-right: solid 5px #6EBA9D; */
 }
 
 .box input[type=submit] {
@@ -91,5 +86,60 @@ a:hover {
   100% {
     transform: rotate(10deg);
   }
+}
+
+.heart {
+  font-size: 150px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer .icon {
+  font-size: 35px;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-gj2unw');
+	src:url('fonts/icomoon.eot?#iefix-gj2unw') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-gj2unw') format('woff'),
+		url('fonts/icomoon.ttf?-gj2unw') format('truetype'),
+		url('fonts/icomoon.svg?-gj2unw#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-heart:before {
+	content: "\e9da";
+}
+
+.icon-facebook3:before {
+	content: "\ea8e";
+}
+
+.icon-twitter3:before {
+	content: "\ea93";
+}
+
+.icon-github:before {
+	content: "\eab1";
 }
 
