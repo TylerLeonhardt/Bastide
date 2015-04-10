@@ -68,8 +68,8 @@ a:hover {
   height: 70px;
 }
 
-.box button:hover {
-  animation: jiggly 0.3s infinite;
+.box button:hover, .box input[type=submit]:hover {
+  box-shadow: 0 0 30px #fff;
 }
 
 .box input[type=text] {
