@@ -8,12 +8,14 @@ window.Interest = (function() {
 
         removeClass(".interest-box", "shown");
         addClass(".school-box", "shown");
+        document.querySelector(".school-box input[type=text]").focus();
       });
     },
     schoolSignup: function(school) {
       ajax("/api/interest/school", { school: school, token: token }, function(data) {
         removeClass(".school-box", "shown");
         addClass(".mailing-list", "shown");
+        document.querySelector(".mailing-list input[type=text]").focus();
       });
     },
     mailSignup: function(email) {
