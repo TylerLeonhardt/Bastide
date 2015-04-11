@@ -12,6 +12,7 @@ function setup() {
 		}
 	});
 }
+setup();
 
 module.exports.query = function(query) {
 	var f = function(callback) {
