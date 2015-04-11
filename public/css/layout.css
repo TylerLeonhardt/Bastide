@@ -155,3 +155,26 @@ a:hover {
 	content: "\eab1";
 }
 
+@media (max-width: 1000px) {
+  .footer {
+    position: static;
+  }
+  .header {
+    font-size: 30px;
+    padding: 0;
+  }
+  .box.shown {
+    height: auto;
+    margin-bottom: 50px;
+  }
+  .box button, .box input[type=submit] {
+    width: auto;
+    font-size: 30px;
+    height: auto;
+    margin-top: 10px;
+  }
+  .box input[type=text] {
+    width: 90%;
+  }
+}
+
