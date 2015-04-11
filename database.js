@@ -7,7 +7,17 @@ connection.connect();
 
 module.exports.query = function(query) {
 	return function(callback) {
-		connection.query(query, callback);
+		try {
+			connection.query(query, callback);
+		} catch (e) {
+			console.log(e);
+			connection.connect();
+			try {
+				connection.query(query, callback);
+			} catch(e) {
+				console.log(e);
+			}
+		}
 	}
 }
 
