@@ -4,10 +4,11 @@
   transform: rotateX(-90deg);
   overflow: hidden;
   max-height: 0;
+  margin: 0;
 }
 
 .default-hidden.shown {
   opacity: 1;
   transform: rotateZ(0);
-  max-height: 500px;
+  max-height: 600px;
 }
