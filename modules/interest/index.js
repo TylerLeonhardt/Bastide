@@ -3,6 +3,7 @@ var mode = require('../../mode');
 var render = require('../../render');
 var db = require('../../database');
 var config = require('../../config/general.json');
+var normalizer = require("school_normalizer");
 
 module.exports = function(app) {
   app.use(route.post('/api/interest/signup', interest_signup));
@@ -61,6 +62,9 @@ module.exports = function(app) {
 
       results[0].forEach(function(result) {
 	for (key in result) {
+	  if (key == "school") {
+	    result[key] = normalizer.getStandardName(result[key] || "unknown");
+	  }
 	  csvdata += result[key] + ",";
 	}
 	csvdata += "\n";
