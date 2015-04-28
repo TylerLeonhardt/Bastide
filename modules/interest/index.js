@@ -17,11 +17,21 @@ module.exports = function(app) {
 
   function *interest_signup() {
     if (restrictAccess(this)) return;
-	var response = this.request.body.reply;
+    var response = this.request.body.reply;
 
-    var token = (new Date).getTime().toString(36) + Math.random().toString(36);
+    if (["yes", "maybe"].indexOf(response) === -1) {
+      this.body = "https://www.youtube.com/watch?v=OdLRZzCf_kk";
+      return;
+    }
 
-	yield db.query("INSERT into `interests` (response, token) VALUES (" + db.escape(response) + "," + db.escape(token) + ")");
+    var token;
+    if (this.request.body.token) {
+      token = this.request.body.token;
+      yield db.query("UPDATE `interests` SET `response` = " + db.escape(response) + " WHERE token = " + db.escape(token));
+    } else {
+      token = (new Date).getTime().toString(36) + Math.random().toString(36);
+      yield db.query("INSERT into `interests` (response, token) VALUES (" + db.escape(response) + "," + db.escape(token) + ")");
+    }
 
     this.body = { token: token };
   }

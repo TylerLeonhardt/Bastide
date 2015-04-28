@@ -1,10 +1,13 @@
 window.Interest = (function() {
-  var token = "";
+  var token = localStorage ? (localStorage.interestToken || "") : "";
 
   return {
     sendReply: function(reply) {
-      ajax("/api/interest/signup", { reply: reply }, function(data) {
+      ajax("/api/interest/signup", { reply: reply, token: token }, function(data) {
         token = data.token;
+
+        if (localStorage)
+          localStorage.interestToken = token;
 
         removeClass(".interest-box", "shown");
         addClass(".school-box", "shown");
