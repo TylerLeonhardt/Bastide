@@ -2,11 +2,13 @@ var route = require('koa-route');
 var mode = require('../../mode');
 var render = require('../../render');
 var db = require('../../database');
+var config = require('../../config/general.json');
 
 module.exports = function(app) {
   app.use(route.post('/api/interest/signup', interest_signup));
   app.use(route.post('/api/interest/school', school_signup));
   app.use(route.post('/api/interest/newsletter', email_signup));
+  app.use(route.get('/api/interest/csv/:key', get_csv));
   app.use(route.get('/', home));
 
   function *home() {
@@ -50,6 +52,24 @@ module.exports = function(app) {
 	yield db.query("UPDATE `interests` SET `email` = " + db.escape(email) + " WHERE `token` = " + db.escape(this.request.body.token));
 
     this.body = "{}";
+  }
+
+  function *get_csv(key) {
+    if (key === config.secret_key) {
+      var results = yield db.query("SELECT * FROM `interests`");
+      var csvdata = "";
+
+      results[0].forEach(function(result) {
+	for (key in result) {
+	  csvdata += result[key] + ",";
+	}
+	csvdata += "\n";
+      });
+      this.body = csvdata;
+    } else {
+      this.body = null;
+      this.status = 404;
+    }
   }
 
   function restrictAccess(that) {
