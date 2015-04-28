@@ -30,7 +30,7 @@ module.exports = function(app) {
       yield db.query("UPDATE `interests` SET `response` = " + db.escape(response) + " WHERE token = " + db.escape(token));
     } else {
       token = (new Date).getTime().toString(36) + Math.random().toString(36);
-      yield db.query("INSERT into `interests` (response, token) VALUES (" + db.escape(response) + "," + db.escape(token) + ")");
+      yield db.query("INSERT into `interests` (response, token, ip) VALUES (" + db.escape(response) + "," + db.escape(token) + ", " + db.escape(this.request.ip) + ")");
     }
 
     this.body = { token: token };
