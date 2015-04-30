@@ -7,9 +7,7 @@ function setup() {
 	connection.connect();
 	connection.on('error', function(err) {
 		console.log(err);
-		if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-			setup();
-		}
+		setup();
 	});
 }
 setup();
