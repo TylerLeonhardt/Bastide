@@ -8,7 +8,13 @@ module.exports = function(app) {
 	app.use(route.post('/api/mailforward/hook/' + config.MANDRILL_PASSPHRASE, webhook));
 
 	function *webhook() {
-		var received = JSON.parse(this.request.body.mandrill_events)[0].msg;
+		var received = {};
+		try {
+			var received = JSON.parse(this.request.body.mandrill_events)[0].msg;
+		} catch(e) {
+			console.log("not a mandrill event");
+			console.log(e);
+		}
 		console.log(received);
 
 		var message = {
