@@ -11,10 +11,12 @@
   "dependencies": {
     "co-views": "^0.3.0",
     "koa": "^0.18.1",
+    "koa-body": "^1.2.1",
     "koa-body-parser": "^1.1.1",
     "koa-json-body": "0.0.3",
     "koa-route": "^2.4.0",
     "koa-static": "^1.4.9",
+    "mandrill-api": "^1.0.45",
     "mysql": "^2.6.1",
     "school_normalizer": "^1.0.0",
     "swig": "^1.4.2"
