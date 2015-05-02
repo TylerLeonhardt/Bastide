@@ -1,6 +1,6 @@
 var route = require('koa-route');
 
-var config = require('../../config/general.json');
+var config = require('../../config/general.json').mailforward;
 var mandrill = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill(config.MANDRILL_KEY);
 
@@ -22,11 +22,7 @@ module.exports = function(app) {
 			"from_email": received.from_email,
 			"from_name": received.from_name,
 			"subject": received.subject,
-			"to": [{
-				"email": "jaxbot@gmail.com",
-				"name": "Jonathan Warner",
-				"type": "to"
-			}],
+			"to": config.mailTo,
 			"headers": {
 				"Reply-To": received.from_email
 			},
