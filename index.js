@@ -3,6 +3,7 @@ var route = require('koa-route');
 var serve = require('koa-static');
 var koaBody = require('koa-body');
 var koaCfIp = require('./koa-cf');
+var koaLog = require('./koa-log');
 
 var render = require('./render');
 
@@ -15,6 +16,7 @@ var app = koa();
 app.use(serve('site/public'));
 app.use(koaBody());
 app.use(koaCfIp());
+app.use(koaLog());
 
 for (var i = 0; i < modules.length; i++) {
   require('./modules/' + modules[i] + '/index.js')(app);
