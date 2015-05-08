@@ -1,9 +1,6 @@
 module.exports = function() {
 	return function* (next) {
-		var cfip = this.headers["cf-connecting-ip"];
-		if (cfip)
-			this.request.ip = cfip;
-
+		this.request.cfip = this.headers["cf-connecting-ip"] || this.request.ip;
 		yield next;
 	};
 };

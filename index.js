@@ -13,10 +13,10 @@ var mode = require('./mode');
 var modules = require('./config/modules.json');
 
 var app = koa();
-app.use(serve('site/public'));
-app.use(koaBody());
 app.use(koaCfIp());
 app.use(koaLog());
+app.use(serve('site/public'));
+app.use(koaBody());
 
 for (var i = 0; i < modules.length; i++) {
   require('./modules/' + modules[i] + '/index.js')(app);
