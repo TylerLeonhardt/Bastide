@@ -4,15 +4,13 @@ html, body {
 
 body {
   background: url("../img/carina-nebula.jpg");
-  background-color: #000;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: #CA9191;
   font-family: "Lato";
   color: #fff;
 }
 
 .header {
+  margin-top: 80px;
   padding: 20px;
   text-align: center;
   font-family: Oswald, sans-serif;
@@ -22,13 +20,24 @@ body {
 a {
   color: #FFF;
   text-decoration: none;
-  text-shadow: 0 0 10px #000;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
+.links {
+  display: block;
+  background: #aaa;
+  text-align: center;
+}
+
+.links ul, .links li {
+  list-style: none;
+  display: inline-block;
+  margin-right:  30px;
+  text-transform: uppercase;
+}
 
 .box {
   display: block;
@@ -90,7 +99,6 @@ a:hover {
 
 .footer {
   bottom: 0;
-  position: fixed;
   text-align: center;
   width: 100%;
 }
@@ -146,6 +154,38 @@ a:hover {
 	content: "\eab1";
 }
 
+.divider.a {
+  text-align: center;
+  background: #fff;
+  color: #555;
+  font-size: 20px;
+}
+
+.divider.c {
+  background: #fff;
+  font-size: 20px;
+}
+
+.divider.b {
+  background: #fff;
+  font-size: 20px;
+}
+
+.divider {
+  color: #555;
+  text-align: center;
+  padding: 20px 50px 40px;
+}
+
+.apply {
+  border: solid 1px #fff;
+  padding: 20px;
+  font-size: 20px;
+  display: block;
+  width: 100px;
+  margin: auto;
+}
+
 @media (max-width: 1000px) {
   .footer {
     position: static;
@@ -153,6 +193,7 @@ a:hover {
   .header {
     font-size: 30px;
     padding: 0;
+    padding-bottom: 20px;
   }
   .box.shown {
     height: auto;
