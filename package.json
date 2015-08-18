@@ -1,8 +1,8 @@
 {
-  "name": "accell",
+  "name": "knight-hacks",
   "private": true,
   "version": "0.0.0",
-  "description": "Yeoman workflow for accell",
+  "description": "KnightHacks.org Website",
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^1.5.7",
