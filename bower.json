@@ -1,0 +1,8 @@
+{
+  "name": "Knight Hacks",
+  "version": "1.0.0",
+  "dependencies": {
+    "foundation": "~5.5.1",
+    "font-awesome": "~4.3.0"
+  }
+}

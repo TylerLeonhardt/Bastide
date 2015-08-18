@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="{{ site.description }}">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <link href="http://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <header role="banner">
+      <div class="row">
+        <div class="columns">
+          <nav class="nav-menu" role="navigation">
+            <button class="nav-menu__button" role="button">
+              <span class="nav-menu__button__bar"></span>
+              <span class="nav-menu__button__bar"></span>
+              <span class="nav-menu__button__bar"></span>
+            </button>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Sponsors</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li class="nav-menu__social">
+                  <a href="#"><span class="fa fa-fw fa-facebook"></span></a>
+                  <a href="#"><span class="fa fa-fw fa-twitter"></span></a>
+                  <a href="#"><span class="fa fa-fw fa-github"></span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="fullpage" role="main">
+      <section class="section section--home">
+        <div class="section__content row">
+          <div class="text-center columns">
+            <h1 class="section--home__logo">{{ site.title }}</h1>
+
+            <p>{{ site.description }}</p>
+
+            <p><a class="button small" href="#">Sign Up!</a></p>
+          </div>
+        </div>
+
+        <a class="button button__down" href="#sponsors" role="button"><span class="fa fa-angle-down"></span></a>
+      </section>
+
+      <section class="section section--sponsors">
+        <h1 class="section__title">Sponsors</h1>
+
+        <div class="section__content row">
+          <div class="text-center columns">
+            <p>{{ sponsors.cta }}</p>
+
+            <p><a class="button no-margin" href="#">Button</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--faq">
+        <h1 class="section__title">FAQ</h1>
+
+        <div class="section__content row">
+          <div class="columns">
+            <ul class="accordion" data-accordion role="tablist">
+              {% for faq in faqs %}
+                <li class="accordion-navigation">
+                  <a href="#panel{{ loop.key }}" role="tab" id="panel{{ loop.key }}-heading" aria-controls="panel1d">{{ faq.question }}</a>
+                  <div id="panel{{ loop.key }}" class="content {% if loop.first %}active{% endif %}" role="tabpanel" aria-labelledby="panel{{ loop.key }}-heading">
+                    {{ faq.answer }}
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      Footer Content
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/scripts.min.js"></script>
+  </body>
+</html>
