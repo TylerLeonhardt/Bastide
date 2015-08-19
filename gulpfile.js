@@ -16,7 +16,7 @@ gulp.task("html", function() {
     .pipe(plugins.data(function(file) {
       return yaml.safeLoad(fs.readFileSync('./_data/' + path.basename(file.path) + '.yml', 'utf8'));
     }))
-    .pipe(plugins.swig())
+    .pipe(plugins.swig({defaults: {cache: false}}))
     .pipe(gulp.dest("./_dist/"))
     .pipe(plugins.size({ title: "html" }));
 });
