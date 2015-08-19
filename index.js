@@ -15,7 +15,7 @@ var modules = require('./config/modules.json');
 var app = koa();
 app.use(koaCfIp());
 app.use(koaLog());
-app.use(serve('site/public'));
+app.use(serve('site/_dist'));
 app.use(koaBody());
 
 for (var i = 0; i < modules.length; i++) {
