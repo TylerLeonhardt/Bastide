@@ -1,0 +1,18 @@
+.accordion {
+  margin: 0;
+
+  border: rem-calc(1) solid rgba(0,0,0,0.2);
+  border-radius: rem-calc(6);
+
+  .accordion-navigation > a,
+  .accordion dd > a {
+    background: transparent;
+    border-bottom: rem-calc(1) solid rgba(0,0,0,0.1);
+    color: fade-out($white, 0.3);
+  }
+
+  .accordion-navigation > .content.active,
+  dd > .content.active {
+    background-color: darken($dark-gray, 7%);
+  }
+}

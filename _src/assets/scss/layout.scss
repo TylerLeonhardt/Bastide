@@ -1,4 +1,6 @@
 body {
+  padding-top: 100vh;
+
   font-family: "Lato", sans-serif;
 
   background: $dark-gray;
@@ -216,10 +218,40 @@ p {
     }
   }
   &--sponsors {
-    margin-top: 100vh;
+    background-color: $teal;
+    color: $white;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $white;
+    }
+
+    .button {
+      border-color: $white;
+      color: $white;
+
+      &:hover {
+        background-color: $white;
+        color: $teal;
+      }
+    }
   }
   &--faq {
-    background: $gray;
+    background-color: $dark-gray;
+    color: fade-out($white, 0.3);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $white;
+    }
   }
   &__title {
     margin: 0 0 $default-space;
@@ -236,18 +268,30 @@ p {
   }
 }
 
+.lead {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  letter-spacing: rem-calc(2);
+  text-transform: uppercase;
+}
+
 .button {
   margin: 0;
 
   font-family: "Raleway", sans-serif;
   font-weight: bold;
-  letter-spacing: rem-calc(3);
+  letter-spacing: rem-calc(2);
   text-transform: uppercase;
 
-  background-color: $gray;
-  border: 0;
+  background-color: transparent;
+  border: rem-calc(2) solid $teal;
   border-radius: rem-calc(4);
-  color: $white;
+  color: $teal;
+
+  &:hover {
+    background-color: $teal;
+    color: $white;
+  }
 
   &__down {
     margin: 0;
@@ -256,7 +300,9 @@ p {
     flex: none;
 
     background: transparent;
+    border: 0;
     border-radius: 0;
+    color: $white;
     &:hover,
     &:active,
     &:focus {
@@ -279,12 +325,12 @@ form[role=form] {
   flex-direction: column;
   justify-content: center;
   label {
-    margin-bottom: rem-calc(1);
     width: 100%;
 
     flex: none;
 
-    background: $white;
+    background: rgba(0,0,0,0.1);
+    border: rem-calc(1) solid $white;
     &:first-of-type {
       border-top-left-radius: rem-calc(4);
       border-top-right-radius: rem-calc(4);
@@ -317,9 +363,14 @@ form[role=form] {
       margin: 0;
       padding: rem-calc(7.5) rem-calc(15);
 
-      background-color: $white;
+      background-color: transparent;
       border: 0;
       box-shadow: none;
+      color: $black;
+
+      &:focus {
+        background-color: transparent;
+      }
     }
   }
   button[type=submit] {
@@ -334,7 +385,7 @@ footer[role=contentinfo] {
   padding: $default-space 0;
   width: 100%;
 
-  background: $dark-gray;
+  background: $black;
   color: $white;
 
   text-align: center;
