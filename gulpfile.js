@@ -41,7 +41,7 @@ gulp.task("styles", function() {
 // Scripts task
 gulp.task("scripts", function() {
   var scripts = gulp.src([
-    "./_src/assets/js/*.js"
+    "./_src/assets/js/**/*.js"
   ])
   .pipe(plugins.concat("scripts.min.js"))
   .pipe(gulp.dest("./_dist/assets/js"));;
