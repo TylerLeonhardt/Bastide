@@ -51,11 +51,23 @@
 
             <p class="lead">{{ site.description }}</p>
 
-            <p><a class="button small round" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
+            <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
           </div>
         </div>
 
         <a class="button button__down" href="#sponsors" role="button"><span class="fa fa-angle-down"></span></a>
+      </section>
+
+      <section class="section section--about">
+        <div class="section__content row">
+          <div class="columns text-center">
+            <h1 class="section__title">About</h1>
+
+            <p>{{ about }}</p>
+
+            <p><a class="button small" href="{{ site.socialLinks.facebook }}"><span class="fa fa-fw fa-facebook"></span></a> <a class="button small" href="{{ site.socialLinks.twitter }}"><span class="fa fa-fw fa-twitter"></span></a> <a class="button small" href="{{ site.socialLinks.github }}"><span class="fa fa-fw fa-github"></span></a></p>
+          </div>
+        </div>
       </section>
 
       <section class="section section--sponsors">
@@ -65,7 +77,7 @@
 
             <p>{{ sponsors.cta }}</p>
 
-            <p><a class="button small round no-margin" href="#" data-reveal-id="sponsorsModal">Contact Us!</a></p>
+            <p><a class="button small no-margin" href="#" data-reveal-id="sponsorsModal">Contact Us!</a></p>
           </div>
         </div>
       </section>
@@ -91,7 +103,8 @@
     </main>
 
     <footer role="contentinfo">
-      Footer Content
+      <img class="footer-logo" src="assets/img/logo.png" alt="Knight Hacks">
+      <p>&copy; 2015, Knight Hacks</p>
     </footer>
 
     <div id="signUpModal" class="reveal-modal" data-reveal aria-labelledby="signUpModalTitle" aria-hidden="true" role="dialog">
@@ -116,7 +129,7 @@
           </div>
         </div>
 
-        <button class="button small round" type="submit">Submit</button>
+        <button class="button small" type="submit">Submit</button>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -149,7 +162,7 @@
           </div>
         </div>
 
-        <button class="button small round" type="submit">Submit</button>
+        <button class="button small" type="submit">Submit</button>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>

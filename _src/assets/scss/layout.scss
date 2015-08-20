@@ -27,7 +27,6 @@ header[role=banner] {
   width: 100%;
 
   background: rgba(0,0,0,0.8);
-  border-radius: rem-calc(6);
   color: transparent;
 
   transition: all 0.5s ease;
@@ -90,7 +89,6 @@ header[role=banner] {
       width: rem-calc(20);
 
       background: $white;
-      border-radius: rem-calc(1);
 
       transition: opacity 0.5s ease, margin 0.2s ease;
 
@@ -156,7 +154,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: $heading-font;
   font-weight: bold;
   letter-spacing: rem-calc(5);
   text-transform: uppercase;
@@ -204,7 +202,7 @@ p {
 
     &__logo {
       height: rem-calc(98);
-      margin: 0 auto $default-space;
+      margin: 0 auto ($default-space * 1.5);
       width: rem-calc(375);
 
       text-align: center;
@@ -215,6 +213,36 @@ p {
       background-size: contain;
 
       color: transparent;
+    }
+
+    .lead {
+      margin: 0 auto ($default-space * 1.5);
+      max-width: rem-calc(475);
+
+      text-align: center;
+    }
+  }
+  &--about {
+    background-color: $lavender;
+    color: $white;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $white;
+    }
+
+    .button {
+      border-color: $white;
+      color: $white;
+
+      &:hover {
+        background-color: $white;
+        color: $lavender;
+      }
     }
   }
   &--sponsors {
@@ -269,7 +297,7 @@ p {
 }
 
 .lead {
-  font-family: "Raleway", sans-serif;
+  font-family: $heading-font;
   font-weight: bold;
   letter-spacing: rem-calc(2);
   text-transform: uppercase;
@@ -278,14 +306,13 @@ p {
 .button {
   margin: 0;
 
-  font-family: "Raleway", sans-serif;
+  font-family: $heading-font;
   font-weight: bold;
   letter-spacing: rem-calc(2);
   text-transform: uppercase;
 
   background-color: transparent;
   border: rem-calc(2) solid $teal;
-  border-radius: rem-calc(4);
   color: $teal;
 
   &:hover {
@@ -308,6 +335,10 @@ p {
     &:focus {
       background-color: rgba(0,0,0,0.2);
     }
+  }
+
+  .fa {
+    font-size: rem-calc(18);
   }
 }
 
@@ -351,7 +382,7 @@ form[role=form] {
       display: block;
       padding: rem-calc(7.5) rem-calc(15) 0;
 
-      font-family: "Raleway", sans-serif;
+      font-family: $heading-font;
       font-weight: bold;
       letter-spacing: rem-calc(2);
       text-transform: uppercase;
@@ -385,8 +416,17 @@ footer[role=contentinfo] {
   padding: $default-space 0;
   width: 100%;
 
-  background: $black;
-  color: $white;
-
+  font-weight: bold;
+  letter-spacing: rem-calc(2);
   text-align: center;
+  text-transform: uppercase;
+
+  background: darken($dark-gray, 7%);
+  color: fade-out($white, 0.3);
+
+  .footer-logo {
+    margin-bottom: $default-space;
+    max-width: rem-calc(200);
+    height: auto;
+  }
 }

@@ -5,11 +5,17 @@ $default-space : rem-calc(30); // controls default padding and margins
 // Colors
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$black      : #111111;
-$dark-gray  : #404040;
-$gray       : rgb(232, 236, 235);
-$teal       : #16a9c1;
-$white      : #ffffff;
+$black         : #111111;
+$dark-gray     : #404040;
+$gray          : rgb(232, 236, 235);
+$teal          : #16a9c1;
+$lavender      : #985386;
+$white         : #ffffff;
+
+// Fonts
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$heading-font : 'Raleway', sans-serif;
 
 // Foundation Grid Settings
 // - - - - - - - - - - - - - - - - - - - - - - - - -

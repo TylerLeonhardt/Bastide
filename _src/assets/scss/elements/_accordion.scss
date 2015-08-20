@@ -1,14 +1,29 @@
 .accordion {
   margin: 0;
 
-  border: rem-calc(1) solid rgba(0,0,0,0.2);
-  border-radius: rem-calc(6);
+  text-align: center;
+
+  border: rem-calc(1) solid rgba(0,0,0,0.15);
+  border-bottom: 0;
 
   .accordion-navigation > a,
   .accordion dd > a {
+    font-weight: bold;
+    letter-spacing: rem-calc(2);
+    text-transform: uppercase;
+
     background: transparent;
-    border-bottom: rem-calc(1) solid rgba(0,0,0,0.1);
+    border-bottom: rem-calc(1) solid rgba(0,0,0,0.15);
     color: fade-out($white, 0.3);
+
+    &:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+  }
+
+  .accordion-navigation > .content,
+  dd > .content {
+      padding: $default-space;
   }
 
   .accordion-navigation > .content.active,
