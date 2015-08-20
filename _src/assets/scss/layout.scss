@@ -1,6 +1,4 @@
 body {
-  padding-top: 100vh;
-
   font-family: "Lato", sans-serif;
 
   background: $dark-gray;
@@ -188,15 +186,12 @@ p {
 
   background: $white;
   &--home {
-    position: fixed;
-    top: 0;
-    z-index: 0;
-
     height: 100vh;
     padding: 0;
     width: 100vw;
 
     background: url('../img/space-bg.png') no-repeat center;
+    background-attachment: fixed;
     background-size: cover;
     color: $white;
 
