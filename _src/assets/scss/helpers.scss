@@ -84,7 +84,7 @@
 }
 
 .true-inline-list {
-  margin:       0 auto 1.0625rem auto;
+  margin: 0 auto 1.0625rem auto;
   margin-left:  -1.375rem;
   margin-right: 0;
   padding: 0;
@@ -98,6 +98,34 @@
 
     &:first-of-type {
       margin-left: 0;
+    }
+  }
+}
+
+.faq-columns {
+  column-count: 1;
+  column-gap: 0;
+
+  @media #{$medium-up} {
+    column-count: 2;
+  }
+
+  @media #{$large-up} {
+    column-count: 3;
+  }
+
+  .faq {
+    position: relative;
+
+    display: inline-block;
+    padding: $default-space;
+    width: 100%;
+
+    text-align: center;
+
+    h3 {
+      font-size: rem-calc(22);
+      letter-spacing: rem-calc(1)
     }
   }
 }
