@@ -6,8 +6,13 @@ window.Bastide.Registration = {
             email: document.querySelector('#signUpModal .email').value,
             school: document.querySelector('#signUpModal .school').value,
         };
-        Bastide.ajax("/api/registration/signup", params, function() {
-            alert("YE");
-        });
+        if (DEV)
+            _handleSignupCompleted();
+        else
+            Bastide.ajax("/api/registration/signup", params, _handleSignupCompleted);
     }
 };
+
+function _handleSignupCompleted(err, data) {
+    alert("YE");
+}
