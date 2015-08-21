@@ -1,0 +1,44 @@
+---
+  site:
+    title: "Knight Hacks"
+    description: "Giving people a space to learn and do things they’ve never done before"
+    contact: "contact@knighthacks.org"
+    socialLinks:
+      facebook: "//www.facebook.com/knighthacks"
+      twitter: "//twitter.com/knighthacks"
+      github: "//github.com/knighthacks"
+  about: "Biodiesel meggings direct trade fashion axe freegan, PBR&B VHS messenger bag Kickstarter food truck Brooklyn Banksy aesthetic. Try-hard single-origin coffee gastropub Helvetica, blog plaid meditation Pitchfork pour-over leggings. Next level lomo tilde, bespoke trust fund cliche retro beard single-origin coffee biodiesel scenester kitsch post-ironic fashion axe slow-carb. Meh salvia yr, blog Neutra biodiesel Kickstarter Brooklyn swag leggings DIY gluten-free. 8-bit salvia next level whatever viral. Schlitz cornhole raw denim freegan Pitchfork, taxidermy lumbersexual. Disrupt whatever fap keffiyeh cray, cardigan mixtape meh paleo."
+  sponsors:
+    cta: "The mission of Knight Hacks is to give people a space to learn and do things they’ve never done before. If you think you can help Knight Hacks reach it’s potential while exposing your brand to more than 300 up and coming developers then please shoot us an email!"
+    entities:
+      -
+        name: "Google"
+        logo: "google-logo.png"
+  faqs:
+    -
+      question: "What is a hackathon?"
+      answer: "An event where people collaborate intensively on hardware and software projects. Some hackathons are intended simply for educational or social purposes, although in many cases the goal is to create usable software."
+    -
+      question: "Who can attend?"
+      answer: "Anyone that is currently enrolled at a university during the time of this event may compete. If you’re not a student, consider mentoring or volunteering [inc. links for mentor/volunteer signup]!"
+    -
+      question: "Will there be transportation?"
+      answer: "We will be providing bus transportation for non-UCF students to and from the venue. Our bussing schedule will be posted here [inc. link]. For those choosing to drive to the event, including UCF students, temporary parking passes will be provided and instructions on where to park will be posted here [inc. link]."
+    -
+      question: "What should I bring?"
+      answer: "Bring your student ID, laptop, and any other materials you may need as you work on your project - chargers, power strips, keyboards, Raspberry Pis, etc. We also recommend you bring toiletries and a change of clothes so you can feel refreshed after working through the night."
+    -
+      question: "What can't I bring?"
+      answer: "Do not bring any kind of drugs, weapons, or alcohol."
+    -
+      question: "What can I hack on?"
+      answer: "Although we strongly encourage you to hack on something that will benefit other students or peers, you are free to hack on anything, as long as it is within the Code of Conduct standards. We will be providing various resources (expand on this once we have info from sponsors - APIs, hardware, etc) and you are free to bring outside materials as well (see What should I bring?)."
+    -
+      question: "What if I don’t have an idea?"
+      answer: "Don’t worry! Many hackers arrive with no idea of what they’ll want to make. We suggest you take a look at the resources our sponsors will be providing and come prepared to chat with other hackers, whether you’re looking for a team, a great idea, or just to meet new faces."
+    -
+      question: "What if I don’t have a team?"
+      answer: "Don’t worry! One way of getting a team together is getting to know your community! Write in the Facebook group and tell attendees more about yourself. If it comes down to the day of the event and you don’t have a team, we will do our best to put you with a willing team to have you on board."
+    -
+      question: "Will there be food?"
+      answer: "We’ve got you covered - we’ll be providing enough food and caffeine to power you through the entire hackathon. You’re welcome to bring any snacks and drinks (again, no alcohol) you absolutely can’t live without as well."

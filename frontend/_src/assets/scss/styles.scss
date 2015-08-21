@@ -1,0 +1,26 @@
+// Foundation import
+@import "../_bower_components/foundation/scss/foundation";
+
+// Font awesome import
+@import "../_bower_components/font-awesome/scss/font-awesome";
+
+// Fullpage.js import
+// @import "../_bower_components/fullpage.js/jquery.fullPage";
+
+// Variables import
+@import "variables";
+
+// Animations import
+@import "animations";
+
+// Mixins import
+@import "mixins";
+
+// Helpers import
+@import "helpers";
+
+// Elements import
+@import "./elements/accordion";
+
+// Main styles import
+@import "layout";

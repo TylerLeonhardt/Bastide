@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="{{ site.description }}">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <script src="assets/js/modernizr.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <header role="banner">
+      <div class="row">
+        <div class="columns">
+          <nav class="nav-menu" role="navigation">
+            <button class="nav-menu__button" role="button">
+              <span class="nav-menu__button__bar"></span>
+              <span class="nav-menu__button__bar"></span>
+              <span class="nav-menu__button__bar"></span>
+            </button>
+
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#sponsors">Sponsors</a></li>
+              <li><a href="#faq">FAQ</a></li>
+
+              <li class="nav-menu__social">
+                <a href="{{ site.socialLinks.facebook }}"><span class="fa fa-fw fa-facebook"></span></a>
+                <a href="{{ site.socialLinks.twitter }}"><span class="fa fa-fw fa-twitter"></span></a>
+                <a href="{{ site.socialLinks.github }}"><span class="fa fa-fw fa-github"></span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+      <section id="home" class="section section--home">
+        <div class="section__content row row--full-width">
+          <div class="text-center columns">
+            <h1 class="section--home__logo">{{ site.title }}</h1>
+
+            <p class="lead">{{ site.description }}</p>
+
+            <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
+          </div>
+        </div>
+
+        <a class="button button__down" href="#about" role="button"><span class="fa fa-angle-down"></span></a>
+      </section>
+
+      <section id="about" class="section section--about">
+        <div class="section__content row">
+          <div class="columns text-center">
+            <h1 class="section__title">About</h1>
+
+            <p>{{ about }}</p>
+
+            <p>
+              <a class="button small" href="{{ site.socialLinks.facebook }}"><span class="fa fa-fw fa-facebook"></span></a>
+              <a class="button small" href="{{ site.socialLinks.twitter }}"><span class="fa fa-fw fa-twitter"></span></a>
+              <a class="button small" href="{{ site.socialLinks.github }}"><span class="fa fa-fw fa-github"></span></a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sponsors" class="section section--sponsors">
+        <div class="section__content row">
+          <div class="columns text-center">
+            <h1 class="section__title">Sponsors</h1>
+
+            <p>{{ sponsors.cta }}</p>
+
+            <p><a class="button small no-margin" href="#" data-reveal-id="sponsorsModal">Contact Us!</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section section--faq">
+        <h1 class="section__title">FAQ</h1>
+
+        <div class="row">
+          <div class="columns">
+            <div class="faq-columns">
+              {% for faq in faqs %}
+                <div class="faq">
+                  <h3 id="question-{{ loop.key + 1 }}-heading">{{ faq.question }}</h3>
+                  <p>{{ faq.answer }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <img class="footer-logo" src="assets/img/logo.png" alt="Knight Hacks">
+      <p>&copy; 2015, Knight Hacks</p>
+    </footer>
+
+    <div id="signUpModal" class="reveal-modal" data-reveal aria-labelledby="signUpModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="signUpModalTitle">Sign Up</h2>
+
+      <form role="form">
+        <div class="row small-collapse margin--bottom">
+          <div class="medium-6 columns">
+            <label><span>Name</span>
+              <input type="text" placeholder="John Doe" class="name">
+            </label>
+          </div>
+          <div class="medium-6 columns">
+            <label><span>Email</span>
+              <input type="text" placeholder="hack@knights.ucf.edu" class="email">
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>School</span>
+              <input type="text" placeholder="University of Central Florida" class="school">
+            </label>
+          </div>
+        </div>
+
+        <button class="button small" onClick="Bastide.Registration.signup()" type="button">Submit</button>
+      </form>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="sponsorsModal" class="reveal-modal" data-reveal aria-labelledby="sponsorsModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="sponsorsUpModalTitle">Contact Us</h2>
+
+      <form role="form">
+        <div class="row small-collapse margin--bottom">
+          <div class="medium-6 columns">
+            <label><span>Name</span>
+              <input type="text" placeholder="John Doe">
+            </label>
+          </div>
+          <div class="medium-6 columns">
+            <label><span>Email</span>
+              <input type="text" placeholder="hack@knights.ucf.edu">
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Company</span>
+              <input type="text" placeholder="University of Central Florida">
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Message</span>
+              <textarea name="message" id="" cols="30" rows="10"></textarea>
+            </label>
+          </div>
+        </div>
+
+        <button class="button small" type="submit">Submit</button>
+      </form>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/foundation.min.js"></script>
+    <script src="assets/js/scripts.min.js"></script>
+
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

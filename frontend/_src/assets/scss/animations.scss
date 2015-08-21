@@ -1,0 +1,9 @@
+@keyframes collapseFirstIconBar {
+  50%  { transform: rotate(45deg); }
+  100% { transform: rotate(45deg); }
+}
+
+@keyframes collapseLastIconBar {
+  50%  { transform: rotate(-45deg); }
+  100% { transform: rotate(-45deg); }
+}
