@@ -3,8 +3,6 @@ $(document).ready(function() {
     var navButtonActive = false;
 
     $('.nav-menu__button').click(function(e) {
-      console.log(navButtonActive);
-
       if (!navButtonActive) {
         $(this).parent().addClass('active');
 
