@@ -16,6 +16,11 @@ $(document).ready(function() {
       }
     });
 
+    $('.nav-menu a').click(function(e) {
+      $('.nav-menu').removeClass('active');
+      navButtonActive = false;
+    });
+
     // $('form[role=form').submit(function(e) {
     //     e.preventDefault();
     //
