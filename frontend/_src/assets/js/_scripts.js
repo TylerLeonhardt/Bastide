@@ -3,8 +3,6 @@ $(document).ready(function() {
     var navButtonActive = false;
 
     $('.nav-menu__button').click(function(e) {
-      console.log(navButtonActive);
-
       if (!navButtonActive) {
         $(this).parent().addClass('active');
 
@@ -14,6 +12,11 @@ $(document).ready(function() {
 
         navButtonActive = false;
       }
+    });
+
+    $('.nav-menu a').click(function(e) {
+      $('.nav-menu').removeClass('active');
+      navButtonActive = false;
     });
 
     // $('form[role=form').submit(function(e) {
