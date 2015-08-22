@@ -92,6 +92,10 @@ gulp.task("images", function() {
     .pipe(plugins.size({ title: "images" }));
 });
 
+gulp.task("clear", function(done) {
+  return require('gulp-cache').clearAll(done);
+});
+
 // Build task
 gulp.task("build", ["html", "styles", "scripts", "fonts", "images"]);
 
