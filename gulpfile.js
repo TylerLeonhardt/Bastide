@@ -59,7 +59,7 @@ gulp.task("scripts", function() {
       "./_src/assets/_bower_components/foundation/js/foundation/foundation.magellan.js",
       //"./_src/assets/_bower_components/foundation/js/foundation/foundation.offcanvas.js",
       //"./_src/assets/_bower_components/foundation/js/foundation/foundation.orbit.js",
-      //"./_src/assets/_bower_components/foundation/js/foundation/foundation.reveal.js",
+      "./_src/assets/_bower_components/foundation/js/foundation/foundation.reveal.js",
       "./_src/assets/_bower_components/foundation/js/foundation/foundation.slider.js",
       //"./_src/assets/_bower_components/foundation/js/foundation/foundation.tab.js",
       //"./_src/assets/_bower_components/foundation/js/foundation/foundation.tooltip.js",
