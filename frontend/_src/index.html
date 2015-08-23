@@ -49,12 +49,12 @@
           <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
         </div>
 
-        <a class="button button__down" href="#about" role="button"><span class="fa fa-angle-down"></span></a>
+        <a class="button button__down" href="#about" role="button"><span class="fa fa-2x fa-angle-down"></span></a>
       </section>
 
-      <div class="row row--full-width small-collapse" data-equalizer>
-        <div class="medium-6 columns">
-          <section id="about" class="section section--about" data-equalizer-watch>
+      <section id="about" class="section section--about" data-equalizer-watch>
+        <div class="row">
+          <div class="columns">
             <header>
               <h1>About</h1>
             </header>
@@ -70,11 +70,13 @@
                 <a class="button small" href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
               </p>
             </footer>
-          </section>
+          </div>
         </div>
+      </section>
 
-        <div class="medium-6 columns">
-          <section id="sponsors" class="section section--sponsors" data-equalizer-watch>
+      <section id="sponsors" class="section section--sponsors" data-equalizer-watch>
+        <div class="row">
+          <div class="columns">
             <header>
               <h1>Sponsors</h1>
             </header>
@@ -86,23 +88,27 @@
             <footer>
               <p><a class="button small no-margin" href="#" data-reveal-id="sponsorsModal">Contact Us!</a></p>
             </footer>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
 
       <section id="faq" class="section section--faq">
-        <header>
-          <h1>FAQ</h1>
-        </header>
+        <div class="row">
+          <div class="columns">
+            <header>
+              <h1>FAQ</h1>
+            </header>
 
-        <div class="section__content">
-          <div class="faq-columns">
-            {% for faq in faqs %}
-              <div class="faq">
-                <h3 id="question-{{ loop.key + 1 }}-heading">{{ faq.question }}</h3>
-                <p>{{ faq.answer }}</p>
+            <div class="section__content">
+              <div class="faq-columns">
+                {% for faq in faqs %}
+                  <div class="faq">
+                    <h3 id="question-{{ loop.key + 1 }}-heading">{{ faq.question }}</h3>
+                    <p>{{ faq.answer }}</p>
+                  </div>
+                {% endfor %}
               </div>
-            {% endfor %}
+            </div>
           </div>
         </div>
       </section>
