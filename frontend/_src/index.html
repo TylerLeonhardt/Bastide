@@ -18,89 +18,91 @@
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
-    <header role="banner">
-      <div class="row">
-        <div class="columns">
-          <nav class="nav-menu" role="navigation">
-            <button class="nav-menu__button" role="button">
-              <span class="nav-menu__button__bar"></span>
-              <span class="nav-menu__button__bar"></span>
-              <span class="nav-menu__button__bar"></span>
-            </button>
+    <nav class="nav-menu" role="navigation">
+      <button class="nav-menu__button" role="button">
+        <span class="nav-menu__button__bar"></span>
+        <span class="nav-menu__button__bar"></span>
+        <span class="nav-menu__button__bar"></span>
+      </button>
 
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#sponsors">Sponsors</a></li>
-              <li><a href="#faq">FAQ</a></li>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#faq">FAQ</a></li>
 
-              <li class="nav-menu__social">
-                <a href="{{ site.socialLinks.facebook }}" target="_blank"><span class="fa fa-fw fa-facebook"></span></a>
-                <a href="{{ site.socialLinks.twitter }}" target="_blank"><span class="fa fa-fw fa-twitter"></span></a>
-                <a href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+        <li class="nav-menu__social">
+          <a href="{{ site.socialLinks.facebook }}" target="_blank"><span class="fa fa-fw fa-facebook"></span></a>
+          <a href="{{ site.socialLinks.twitter }}" target="_blank"><span class="fa fa-fw fa-twitter"></span></a>
+          <a href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
+        </li>
+      </ul>
+    </nav>
 
     <main role="main">
       <section id="home" class="section section--home">
-        <div class="section__content row row--full-width">
-          <div class="text-center columns">
-            <h1 class="section--home__logo">{{ site.title }}</h1>
+        <div class="section__content">
+          <h1 class="section--home__logo">{{ site.title }}</h1>
 
-            <p class="lead">{{ site.description }}</p>
+          <p class="lead">{{ site.description }}</p>
 
-            <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
-          </div>
+          <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
         </div>
 
         <a class="button button__down" href="#about" role="button"><span class="fa fa-angle-down"></span></a>
       </section>
 
-      <section id="about" class="section section--about">
-        <div class="section__content row">
-          <div class="columns text-center">
-            <h1 class="section__title">About</h1>
+      <div class="row row--full-width small-collapse" data-equalizer>
+        <div class="medium-6 columns">
+          <section id="about" class="section section--about" data-equalizer-watch>
+            <header>
+              <h1>About</h1>
+            </header>
 
-            <p>{{ about }}</p>
+            <div class="section__content">
+              <p>{{ about }}</p>
+            </div>
 
-            <p>
-              <a class="button small" href="{{ site.socialLinks.facebook }}" target="_blank"><span class="fa fa-fw fa-facebook"></span></a>
-              <a class="button small" href="{{ site.socialLinks.twitter }}" target="_blank"><span class="fa fa-fw fa-twitter"></span></a>
-              <a class="button small" href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
-            </p>
-          </div>
+            <footer>
+              <p>
+                <a class="button small" href="{{ site.socialLinks.facebook }}" target="_blank"><span class="fa fa-fw fa-facebook"></span></a>
+                <a class="button small" href="{{ site.socialLinks.twitter }}" target="_blank"><span class="fa fa-fw fa-twitter"></span></a>
+                <a class="button small" href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
+              </p>
+            </footer>
+          </section>
         </div>
-      </section>
 
-      <section id="sponsors" class="section section--sponsors">
-        <div class="section__content row">
-          <div class="columns text-center">
-            <h1 class="section__title">Sponsors</h1>
+        <div class="medium-6 columns">
+          <section id="sponsors" class="section section--sponsors" data-equalizer-watch>
+            <header>
+              <h1>Sponsors</h1>
+            </header>
 
-            <p>{{ sponsors.cta }}</p>
+            <div class="section__content">
+              <p>{{ sponsors.cta }}</p>
+            </div>
 
-            <p><a class="button small no-margin" href="#" data-reveal-id="sponsorsModal">Contact Us!</a></p>
-          </div>
+            <footer>
+              <p><a class="button small no-margin" href="#" data-reveal-id="sponsorsModal">Contact Us!</a></p>
+            </footer>
+          </section>
         </div>
-      </section>
+      </div>
 
       <section id="faq" class="section section--faq">
-        <h1 class="section__title">FAQ</h1>
+        <header>
+          <h1>FAQ</h1>
+        </header>
 
-        <div class="row">
-          <div class="columns">
-            <div class="faq-columns">
-              {% for faq in faqs %}
-                <div class="faq">
-                  <h3 id="question-{{ loop.key + 1 }}-heading">{{ faq.question }}</h3>
-                  <p>{{ faq.answer }}</p>
-                </div>
-              {% endfor %}
-            </div>
+        <div class="section__content">
+          <div class="faq-columns">
+            {% for faq in faqs %}
+              <div class="faq">
+                <h3 id="question-{{ loop.key + 1 }}-heading">{{ faq.question }}</h3>
+                <p>{{ faq.answer }}</p>
+              </div>
+            {% endfor %}
           </div>
         </div>
       </section>
