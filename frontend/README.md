@@ -1,4 +1,3 @@
-# Deprecated. Please use `bastide` instead, which will be renamed to the same name.
 # KnightHacks.org
 
 Run:

@@ -4,148 +4,6 @@ body {
   background: $dark-gray;
 }
 
-header[role=banner] {
-  position: fixed;
-  top: 0;
-  z-index: 9;
-
-  padding-top: ($default-space / 2);
-  width: 100%;
-}
-
-.nav-menu {
-  position: relative;
-
-  float: right;
-  height: 100%;
-  max-height: rem-calc(50);
-  max-width:  rem-calc(50);
-  // padding-top: rem-calc(50);
-  overflow: hidden;
-  width: 100%;
-
-  background: rgba(0,0,0,0.8);
-  color: transparent;
-
-  transition: all 0.5s ease;
-
-  &.active {
-    max-width:  rem-calc(200);
-    max-height: rem-calc(250);
-
-    color: $white;
-
-    .nav-menu__button {
-      border-left: rem-calc(1) solid rgba(255,255,255,0.1);
-    }
-
-    .nav-menu__button__bar {
-      margin: 0;
-
-      &:first-of-type {
-        margin-bottom: rem-calc(-4);
-
-        animation: collapseFirstIconBar 0.5s ease 0.25s forwards;
-      }
-      &:nth-of-type(2n) {
-        opacity: 0;
-      }
-      &:last-of-type {
-        margin-top: rem-calc(-4);
-
-        animation: collapseLastIconBar 0.5s ease 0.25s forwards;
-      }
-    }
-  }
-
-  .nav-menu__button {
-    position: absolute;
-    top:   0;
-    right: 0;
-
-    display: flex;
-    height: rem-calc(50);
-    margin:  0;
-    padding: 0;
-    width: rem-calc(50);
-
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-
-    background: transparent;
-    outline: 0;
-
-    &:hover {
-      background-color: rgba(0,0,0,0.2);
-    }
-
-    &__bar {
-      display: block;
-      height: rem-calc(4);
-      margin-bottom: rem-calc(3);
-      width: rem-calc(20);
-
-      background: $white;
-
-      transition: opacity 0.5s ease, margin 0.2s ease;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-
-    list-style-type: none;
-
-    li > a {
-      display: block;
-      padding: rem-calc(12) rem-calc(12);
-
-      font-weight: bold;
-      letter-spacing: rem-calc(1);
-      text-transform: uppercase;
-
-      border-bottom: rem-calc(1) solid rgba(255,255,255,0.1);
-      color: inherit;
-
-      &:hover {
-        background-color: rgba(0,0,0,0.2);
-      }
-    }
-
-    li.nav-menu__social {
-      text-align: center;
-
-      > a {
-        display: inline-block;
-        margin: 0 rem-calc(-2);
-        padding: rem-calc(12) 0;
-        width: 33.33333%;
-
-        border-right: rem-calc(1) solid rgba(255,255,255,0.1);
-        border-bottom: 0;
-
-        &:last-of-type {
-          border-right: 0;
-        }
-
-        .fa {
-          font-size: rem-calc(23);
-        }
-      }
-    }
-  }
-}
-
-main[role=main] {
-  z-index: 2;
-}
-
 h1,
 h2,
 h3,
@@ -162,6 +20,12 @@ h6 {
 
 h1 {
   margin-bottom: $default-space;
+
+  font-size: 2.125rem;
+
+  @media #{$large-up} {
+    font-size: 2.75rem;
+  }
 }
 
 p {
@@ -170,132 +34,6 @@ p {
   &:last-of-type,
   &:only-of-type {
     margin-bottom: 0;
-  }
-}
-
-.section {
-  position: relative;
-  z-index: 2;
-
-  display: flex;
-  padding: ($default-space * 2) 0;
-
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-
-  background: $white;
-  &--home {
-    height: 100vh;
-    padding: 0;
-    width: 100vw;
-
-    background: url('../img/space-bg.png') no-repeat center;
-    background-attachment: fixed;
-    background-size: cover;
-    color: $white;
-
-    &__logo {
-      height: rem-calc(98);
-      margin: 0 auto ($default-space * 1.5);
-      width: rem-calc(275);
-
-      text-align: center;
-      text-indent: rem-calc(-9999);
-
-      background: url('../img/logo.png') no-repeat center;
-      background-size: contain;
-
-      color: transparent;
-
-      @media #{$medium-up} {
-        width: rem-calc(350);
-      }
-    }
-
-    .lead {
-      margin: 0 auto ($default-space * 1.5);
-      max-width: rem-calc(250);
-      padding: 0 $default-space;
-
-      text-align: center;
-
-      @media #{$medium-up} {
-        max-width: rem-calc(500);
-      }
-    }
-  }
-  &--about {
-    background-color: $lavender;
-    color: $white;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $white;
-    }
-
-    .button {
-      border-color: $white;
-      color: $white;
-
-      &:hover {
-        background-color: $white;
-        color: $lavender;
-      }
-    }
-  }
-  &--sponsors {
-    background-color: $teal;
-    color: $white;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $white;
-    }
-
-    .button {
-      border-color: $white;
-      color: $white;
-
-      &:hover {
-        background-color: $white;
-        color: $teal;
-      }
-    }
-  }
-  &--faq {
-    background-color: $dark-gray;
-    color: fade-out($white, 0.3);
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $white;
-    }
-  }
-  &__title {
-    margin: 0 0 $default-space;
-
-    line-height: 1;
-  }
-  &__content {
-    display: flex;
-
-    align-items: center;
-    flex: 1 0 auto;
-    flex-direction: column;
-    justify-content: center;
   }
 }
 
@@ -309,7 +47,6 @@ p {
   margin: 0;
 
   font-family: $heading-font;
-  font-weight: bold;
   letter-spacing: rem-calc(1);
   text-transform: uppercase;
 
@@ -353,6 +90,7 @@ form[role=form] {
   flex: 1 0 auto;
   flex-direction: column;
   justify-content: center;
+
   label {
     width: 100%;
 
@@ -360,22 +98,15 @@ form[role=form] {
 
     background: rgba(0,0,0,0.1);
     border: rem-calc(1) solid $white;
-    &:first-of-type {
-      border-top-left-radius: rem-calc(4);
-      border-top-right-radius: rem-calc(4);
-    }
+
     &:last-of-type {
       flex: 1 0 auto;
 
-      border-bottom-right-radius: rem-calc(4);
-      border-bottom-left-radius: rem-calc(4);
       textarea {
         height: 100%;
-
-        border-bottom-right-radius: rem-calc(4);
-        border-bottom-left-radius: rem-calc(4);
       }
     }
+
     span {
       display: block;
       padding: rem-calc(7.5) rem-calc(15) 0;
@@ -387,6 +118,7 @@ form[role=form] {
 
       color: fade-out($black, 0.45);
     }
+
     input,
     textarea {
       margin: 0;
@@ -402,14 +134,48 @@ form[role=form] {
       }
     }
   }
+
   button[type=submit] {
     flex: none;
   }
 }
 
+.reveal-modal {
+  padding: $default-space;
+
+  background-color: $dark-gray;
+  border: 0;
+  border-radius: rem-calc(4);
+  color: $white;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $white;
+  }
+
+  form[role=form] {
+    label {
+      background: darken($dark-gray, 7%);
+      border: rem-calc(1) solid $dark-gray;
+
+      span {
+        color: fade-out($white, 0.45);
+      }
+
+      input,
+      textarea {
+        color: $white;
+      }
+    }
+  }
+}
+
 footer[role=contentinfo] {
   position: relative;
-  z-index: 1;
 
   padding: $default-space 0;
   width: 100%;

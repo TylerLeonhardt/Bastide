@@ -1,0 +1,130 @@
+.nav-menu {
+  position: fixed;
+  top: $default-space;
+  right: $default-space;
+  z-index: 9;
+
+  height: 100%;
+  max-height: rem-calc(50);
+  max-width:  rem-calc(50);
+  // padding-top: rem-calc(50);
+  overflow: hidden;
+  width: 100%;
+
+  background: rgba(0,0,0,0.8);
+  color: transparent;
+
+  transition: all 0.5s ease;
+
+  &.active {
+    max-width:  rem-calc(200);
+    max-height: rem-calc(250);
+
+    color: $white;
+
+    .nav-menu__button {
+      border-left: rem-calc(1) solid rgba(255,255,255,0.1);
+    }
+
+    .nav-menu__button__bar {
+      margin: 0;
+
+      &:first-of-type {
+        margin-bottom: rem-calc(-4);
+
+        animation: collapseFirstIconBar 0.5s ease 0.25s forwards;
+      }
+      &:nth-of-type(2n) {
+        opacity: 0;
+      }
+      &:last-of-type {
+        margin-top: rem-calc(-4);
+
+        animation: collapseLastIconBar 0.5s ease 0.25s forwards;
+      }
+    }
+  }
+
+  .nav-menu__button {
+    position: absolute;
+    top:   0;
+    right: 0;
+
+    display: flex;
+    height: rem-calc(50);
+    margin:  0;
+    padding: 0;
+    width: rem-calc(50);
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background: transparent;
+    outline: 0;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.2);
+    }
+
+    &__bar {
+      display: block;
+      height: rem-calc(4);
+      margin-bottom: rem-calc(3);
+      width: rem-calc(20);
+
+      background: $white;
+
+      transition: opacity 0.5s ease, margin 0.2s ease;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    li > a {
+      display: block;
+      padding: rem-calc(12) rem-calc(12);
+
+      font-weight: bold;
+      letter-spacing: rem-calc(1);
+      text-transform: uppercase;
+
+      border-bottom: rem-calc(1) solid rgba(255,255,255,0.1);
+      color: inherit;
+
+      &:hover {
+        background-color: rgba(0,0,0,0.2);
+      }
+    }
+
+    li.nav-menu__social {
+      text-align: center;
+
+      > a {
+        display: inline-block;
+        margin: 0 rem-calc(-2);
+        padding: rem-calc(12) 0;
+        width: 33.33333%;
+
+        border-right: rem-calc(1) solid rgba(255,255,255,0.1);
+        border-bottom: 0;
+
+        &:last-of-type {
+          border-right: 0;
+        }
+
+        .fa {
+          font-size: rem-calc(23);
+        }
+      }
+    }
+  }
+}

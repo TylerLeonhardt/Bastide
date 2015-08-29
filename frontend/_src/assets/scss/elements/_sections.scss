@@ -1,0 +1,132 @@
+.section {
+  position: relative;
+
+  display: flex;
+  padding: $default-space;
+
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
+
+  background: $white;
+  color: $white;
+
+  @media #{$large-up} {
+    padding: ($default-space * 2);
+  }
+
+  &--home {
+    height: 100vh;
+    padding: 0;
+
+    background: url('../img/space-bg.png') no-repeat center;
+    // background-attachment: fixed;
+    background-size: cover;
+
+    &__logo {
+      height: rem-calc(98);
+      margin: 0 auto ($default-space * 1.5);
+      width: rem-calc(275);
+
+      text-indent: rem-calc(-9999);
+
+      background: url('../img/logo.png') no-repeat center;
+      background-size: contain;
+
+      color: transparent;
+
+      @media #{$medium-up} {
+        width: rem-calc(350);
+      }
+    }
+
+    .section__content {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lead {
+      margin: 0 auto ($default-space * 1.5);
+      max-width: rem-calc(250);
+      padding: 0 $default-space;
+
+      text-align: center;
+
+      @media #{$medium-up} {
+        max-width: rem-calc(500);
+      }
+    }
+  }
+
+  &--about {
+    background-color: $lavender;
+
+    .button {
+      border-color: $white;
+      color: $white;
+
+      &:hover {
+        background-color: $white;
+        color: $lavender;
+      }
+    }
+  }
+
+  &--sponsors {
+    background-color: $teal;
+
+    .button {
+      border-color: $white;
+      color: $white;
+
+      &:hover {
+        background-color: $white;
+        color: $teal;
+      }
+    }
+  }
+
+  &--faq {
+    background-color: $dark-gray;
+    color: fade-out($white, 0.3);
+
+    h3 {
+      color: $white;
+    }
+  }
+
+  header {
+    flex: none;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $white;
+    }
+
+    h1 {
+      margin: 0 0 $default-space;
+
+      line-height: 1;
+    }
+  }
+
+  &__content {
+    display: flex;
+    margin-bottom: $default-space;
+
+    flex: 1 0 auto;
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  footer {
+    flex: none;
+  }
+}
