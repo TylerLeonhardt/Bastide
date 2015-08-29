@@ -197,4 +197,13 @@ footer[role=contentinfo] {
       max-width: rem-calc(200);
     }
   }
+  .footer-club-info {
+    font-size: 12px;
+    margin: auto;
+    position: relative;
+    width: auto;
+    @media #{$medium-up} {
+      width: 400px;
+    }
+  }
 }
