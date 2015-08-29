@@ -1,0 +1,7 @@
+.button {
+  &--social.small {
+    padding: rem-calc(11) rem-calc(22) rem-calc(12) rem-calc(22);
+
+    font-size: rem-calc(18);
+  }
+}
