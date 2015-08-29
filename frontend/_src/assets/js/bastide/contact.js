@@ -4,7 +4,7 @@ window.Bastide.Contact = {
         var params = {
             name: document.querySelector('#emailModal .name').value,
             email: document.querySelector('#emailModal .email').value,
-            school: document.querySelector('#emailModal .message').value,
+            body: document.querySelector('#emailModal .message').value,
         };
         if (window.DEV)
             _handleEmailCompleted();
