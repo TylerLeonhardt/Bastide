@@ -14,7 +14,11 @@ window.Bastide.Contact = {
 };
 
 function _handleEmailCompleted(data) {
-    $('#emailCompletedModal').foundation('reveal', 'open');
-    $('#emailModal').foundation('reveal', 'close');
+    if (data) {
+        $('#emailCompletedModal').foundation('reveal', 'open');
+        $('#emailModal').foundation('reveal', 'close');
+    } else {
+        alert("There was a problem sending your email. Please make sure all fields are filled out properly. If this problem persists, send us an email with your mail client to team@knighthacks.org");
+    }
 }
 
