@@ -22,11 +22,15 @@ module.exports = function(app) {
 
 	function *email() {
 		var response = this.request.body || {};
+		var subject = "Email from KH.org";
+		if (response.company) {
+			subject = "Sponsor email from " + response.company;
+		}
 		var message = {
 			"text": response.body,
 			"from_email": response.email,
 			"from_name": response.name,
-			"subject": "Email from KH.org",
+			"subject": subject,
 			"to": config.mailTo,
 			"headers": {
 				"Reply-To": response.email

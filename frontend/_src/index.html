@@ -159,27 +159,27 @@
         <div class="row small-collapse margin--bottom">
           <div class="medium-6 columns">
             <label><span>Name</span>
-              <input type="text" placeholder="John Doe">
+              <input type="text" placeholder="John Doe" class="name">
             </label>
           </div>
           <div class="medium-6 columns">
             <label><span>Email</span>
-              <input type="text" placeholder="hack@knights.ucf.edu">
+              <input type="text" placeholder="hack@knights.ucf.edu" class="email">
             </label>
           </div>
           <div class="columns">
             <label><span>Company</span>
-              <input type="text" placeholder="University of Central Florida">
+              <input type="text" placeholder="University of Central Florida" class="company">
             </label>
           </div>
           <div class="columns">
             <label><span>Message</span>
-              <textarea name="message" id="" cols="30" rows="10"></textarea>
+              <textarea name="message" id="" cols="30" rows="10" class="message"></textarea>
             </label>
           </div>
         </div>
 
-        <button class="button small" type="submit">Submit</button>
+        <button class="button small" type="button" onClick="Bastide.Contact.sendSponsorEmail();">Submit</button>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>

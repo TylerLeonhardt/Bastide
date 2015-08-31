@@ -10,6 +10,18 @@ window.Bastide.Contact = {
             _handleEmailCompleted();
         else
             Bastide.ajax("/api/contact/email", params, _handleEmailCompleted);
+    },
+    sendSponsorEmail: function() {
+        var params = {
+            name: document.querySelector('#sponsorsModal .name').value,
+            email: document.querySelector('#sponsorsModal .email').value,
+            body: document.querySelector('#sponsorsModal .message').value,
+            company: document.querySelector('#sponsorsModal .company').value,
+        };
+        if (window.DEV)
+            _handleEmailCompleted();
+        else
+            Bastide.ajax("/api/contact/email", params, _handleEmailCompleted);
     }
 };
 
@@ -17,6 +29,7 @@ function _handleEmailCompleted(data) {
     if (data) {
         $('#emailCompletedModal').foundation('reveal', 'open');
         $('#emailModal').foundation('reveal', 'close');
+        $('#sponsorsModal').foundation('reveal', 'close');
     } else {
         alert("There was a problem sending your email. Please make sure all fields are filled out properly. If this problem persists, send us an email with your mail client to team@knighthacks.org");
     }
