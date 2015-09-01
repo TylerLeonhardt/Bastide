@@ -50,15 +50,10 @@
     top:   0;
     right: 0;
 
-    display: flex;
     height: rem-calc(50);
     margin:  0;
-    padding: 0;
+    padding: rem-calc(16) rem-calc(15);
     width: rem-calc(50);
-
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
 
     background: transparent;
     outline: 0;

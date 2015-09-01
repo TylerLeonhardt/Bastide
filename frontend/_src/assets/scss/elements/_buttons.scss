@@ -1,4 +1,36 @@
 .button {
+  margin: 0;
+
+  font-family: $heading-font;
+  letter-spacing: rem-calc(1);
+  text-transform: uppercase;
+
+  background-color: transparent;
+  border: rem-calc(2) solid $teal;
+  color: $teal;
+
+  &:hover {
+    background-color: $teal;
+    color: $white;
+  }
+
+  &__down {
+    margin: 0;
+    width: 100%;
+
+    flex: none;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    color: $white;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: rgba(0,0,0,0.2);
+    }
+  }
+
   &--social.small {
     padding: rem-calc(11) rem-calc(22) rem-calc(12) rem-calc(22);
 
