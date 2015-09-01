@@ -6,6 +6,10 @@ window.Bastide.Contact = {
             email: document.querySelector('#emailModal .email').value,
             body: document.querySelector('#emailModal .message').value,
         };
+        if (!_validateEmail(params.email)) {
+            document.querySelector('#emailModal .errors').className += ' visible';
+            return;
+        }
         if (window.DEV)
             _handleEmailCompleted();
         else
@@ -18,6 +22,10 @@ window.Bastide.Contact = {
             body: document.querySelector('#sponsorsModal .message').value,
             company: document.querySelector('#sponsorsModal .company').value,
         };
+        if (!_validateEmail(params.email)) {
+            document.querySelector('#sponsorsModal .errors').className += ' visible';
+            return;
+        }
         if (window.DEV)
             _handleEmailCompleted();
         else
@@ -35,3 +43,13 @@ function _handleEmailCompleted(data) {
     }
 }
 
+function _validateEmail(email) {
+    // We're going to be really loose about this, just up to the point where Mandrill will probably not complain
+    if (
+        email.indexOf("@") === -1 ||
+        email.indexOf(".") === -1
+    ) {
+        return false;
+    }
+    return true;
+}

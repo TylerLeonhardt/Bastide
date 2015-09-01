@@ -164,7 +164,7 @@
           </div>
           <div class="medium-6 columns">
             <label><span>Email</span>
-              <input type="text" placeholder="hack@knights.ucf.edu" class="email">
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email">
             </label>
           </div>
           <div class="columns">
@@ -177,6 +177,9 @@
               <textarea name="message" id="" cols="30" rows="10" class="message"></textarea>
             </label>
           </div>
+        </div>
+        <div class="errors">
+          Please make sure you have provided a valid email address.
         </div>
 
         <button class="button small" type="button" onClick="Bastide.Contact.sendSponsorEmail();">Submit</button>
@@ -206,6 +209,10 @@
               <textarea class="message" placeholder="Type your message here..."></textarea>
             </label>
           </div>
+        </div>
+
+        <div class="errors">
+          Please make sure you have provided a valid email address.
         </div>
 
         <button class="button small" onClick="Bastide.Contact.sendEmail()" type="button">Send</button>
