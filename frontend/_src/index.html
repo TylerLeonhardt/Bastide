@@ -109,6 +109,11 @@
                 {% endfor %}
               </div>
             </div>
+
+            <div class="text-center">
+              <h3>Have any more questions for us?</h3>
+              <p><a class="button small" href="#" data-reveal-id="emailModal">Shoot us an email!</a></p>
+            </div>
           </div>
         </div>
       </section>
@@ -177,6 +182,44 @@
 
         <button class="button small" type="submit">Submit</button>
       </form>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="emailModal" class="reveal-modal" data-reveal aria-labelledby="emailModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="emailModalTitle">Email us</h2>
+      <p class="text-center">Fill out the form below, or email us at <a href="mailto:team@knighthacks.org">team@knighthacks.org</a></p>
+
+      <form role="form">
+        <div class="row small-collapse margin--bottom">
+          <div class="columns">
+            <label><span>Name</span>
+              <input type="text" placeholder="John Doe" class="name">
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Email</span>
+              <input type="text" placeholder="hack@knights.ucf.edu" class="email">
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Message</span>
+              <textarea class="message" placeholder="Type your message here..."></textarea>
+            </label>
+          </div>
+        </div>
+
+        <button class="button small" onClick="Bastide.Contact.sendEmail()" type="button">Send</button>
+      </form>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="emailCompletedModal" class="reveal-modal" data-reveal aria-labelledby="emailCompletedModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="emailModalTitle">Email sent</h2>
+      <p class="text-center">
+        Thanks for reaching out to us! We'll reply shortly.
+      </p>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
