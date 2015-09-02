@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    $(document).foundation();
+    smoothScroll.init();
+
     var navButtonActive = false;
 
     $('.nav-menu__button').click(function(e) {
