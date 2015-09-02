@@ -2,6 +2,10 @@ body {
   font-family: "Lato", sans-serif;
 
   background: $dark-gray;
+
+  &.modal-active {
+    overflow: hidden;
+  }
 }
 
 h1,
