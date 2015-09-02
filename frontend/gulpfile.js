@@ -41,7 +41,6 @@ gulp.task("styles", function() {
 // Scripts task
 gulp.task("scripts", function() {
   var scripts = gulp.src([
-    "./_src/assets/_bower_components/smooth-scroll/dist/js/smooth-scroll.min.js",
     "./_src/assets/js/**/*.js"
   ])
   .pipe(plugins.concat("scripts.min.js"))
