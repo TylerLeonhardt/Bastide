@@ -178,3 +178,11 @@ footer[role=contentinfo] {
     }
   }
 }
+
+.reveal-modal .errors {
+  display: none;
+  color: red;
+  &.visible {
+    display: block;
+  }
+}
