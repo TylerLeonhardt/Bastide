@@ -1,15 +1,15 @@
 $(document).ready(function() {
-    var resetZIndex     = false;
+    $(document).foundation();
+    smoothScroll.init();
+
     var navButtonActive = false;
 
     $('.nav-menu__button').click(function(e) {
       if (!navButtonActive) {
         $(this).parent().addClass('active');
-
         navButtonActive = true;
       } else {
         $(this).parent().removeClass('active');
-
         navButtonActive = false;
       }
     });
@@ -19,23 +19,12 @@ $(document).ready(function() {
       navButtonActive = false;
     });
 
-    // $('form[role=form').submit(function(e) {
-    //     e.preventDefault();
-    //
-    //     $.ajax({
-    //         url: '//formspree.io/me@ericcolon.com',
-    //         method: 'POST',
-    //         data: $(this).serialize(),
-    //         dataType: 'json',
-    //         beforeSend: function() {
-    //             $('button[type=submit]').html('Sending...');
-    //         },
-    //         success: function(data) {
-    //             $('button[type=submit]').html('Sent! ;)');
-    //         },
-    //         error: function(err) {
-    //             $('button[type=submit]').html('Not so fast, hot shot');
-    //         }
-    //     });
-    // });
+    // Modal open/close bindings
+    $(document).on('open.fndtn.reveal', '[data-reveal]', function () {
+      $('body').addClass('modal-active');
+    });
+
+    $(document).on('close.fndtn.reveal', '[data-reveal]', function () {
+      $('body').removeClass('modal-active');
+    });
 });
