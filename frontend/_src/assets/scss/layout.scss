@@ -15,7 +15,7 @@ h4,
 h5,
 h6 {
   font-family: $heading-font;
-  font-weight: bold;
+  //font-weight: bold;
   letter-spacing: rem-calc(5);
   text-transform: uppercase;
 
@@ -32,8 +32,14 @@ h1 {
   }
 }
 
+a {
+  color: $teal;
+}
+
 p {
   margin-bottom: $default-space;
+
+  line-height: 2;
 
   &:last-of-type,
   &:only-of-type {
@@ -147,7 +153,7 @@ form[role=form] {
 footer[role=contentinfo] {
   position: relative;
 
-  padding: $default-space 0;
+  padding: ($default-space * 3) 0;
   width: 100%;
 
   font-weight: bold;
@@ -181,7 +187,7 @@ footer[role=contentinfo] {
 
 .reveal-modal .errors {
   display: none;
-  color: red;
+
   &.visible {
     display: block;
   }

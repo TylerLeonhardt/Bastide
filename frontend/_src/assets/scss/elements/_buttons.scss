@@ -36,4 +36,14 @@
 
     font-size: rem-calc(18);
   }
+
+  &.secondary {
+    background: transparent;
+    border-color: darken($gray, 25%);
+    color: darken($gray, 25%);
+
+    &:hover {
+      background-color: darken($gray, 25%);
+    }
+  }
 }

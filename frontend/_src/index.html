@@ -44,7 +44,9 @@
         <div class="section__content">
           <h1 class="section--home__logo">{{ site.title }}</h1>
 
-          <p class="lead">{{ site.description }}</p>
+          <p class="section--home__description lead">{{ site.description }}</p>
+
+          <p class="section--home__date lead">{{ site.hackathonDate }}</p>
 
           <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
         </div>
@@ -110,10 +112,10 @@
               </div>
             </div>
 
-            <div class="text-center">
-              <h3>Have any more questions for us?</h3>
-              <p><a class="button small" href="#" data-reveal-id="emailModal">Shoot us an email!</a></p>
-            </div>
+            <hr>
+
+            <h2 class="text-center margin--bottom">Have any more questions for us?</h2>
+            <p class="text-center"><a class="button small" href="#" data-reveal-id="emailModal">Shoot us an email!</a></p>
           </div>
         </div>
       </section>
@@ -164,6 +166,10 @@
       <h2 class="text-center no-margin margin--bottom" id="sponsorsUpModalTitle">Contact Us</h2>
 
       <form role="form">
+        <div class="errors alert-box alert">
+          Please make sure you have provided a valid email address.
+        </div>
+
         <div class="row small-collapse margin--bottom">
           <div class="medium-6 columns">
             <label><span>Name</span>
@@ -172,22 +178,19 @@
           </div>
           <div class="medium-6 columns">
             <label><span>Email</span>
-              <input type="email" placeholder="hack@knights.ucf.edu" class="email">
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
             </label>
           </div>
           <div class="columns">
             <label><span>Company</span>
-              <input type="text" placeholder="University of Central Florida" class="company">
+              <input type="text" placeholder="University of Central Florida" class="company" required>
             </label>
           </div>
           <div class="columns">
             <label><span>Message</span>
-              <textarea name="message" id="" cols="30" rows="10" class="message"></textarea>
+              <textarea name="message" id="" cols="30" rows="10" class="message" required></textarea>
             </label>
           </div>
-        </div>
-        <div class="errors">
-          Please make sure you have provided a valid email address.
         </div>
 
         <button class="button small" type="button" onClick="Bastide.Contact.sendSponsorEmail();">Submit</button>
@@ -198,9 +201,12 @@
 
     <div id="emailModal" class="reveal-modal" data-reveal aria-labelledby="emailModalTitle" aria-hidden="true" role="dialog">
       <h2 class="text-center no-margin margin--bottom" id="emailModalTitle">Email us</h2>
-      <p class="text-center">Fill out the form below, or email us at <a href="mailto:team@knighthacks.org">team@knighthacks.org</a></p>
 
       <form role="form">
+        <div class="errors alert-box alert">
+          Please make sure you have provided a valid email address.
+        </div>
+
         <div class="row small-collapse margin--bottom">
           <div class="columns">
             <label><span>Name</span>
@@ -219,11 +225,10 @@
           </div>
         </div>
 
-        <div class="errors">
-          Please make sure you have provided a valid email address.
-        </div>
-
-        <button class="button small" onClick="Bastide.Contact.sendEmail()" type="button">Send</button>
+        <p class="text-center">
+          <button class="button small" onClick="Bastide.Contact.sendEmail()" type="button">Send</button>
+          <a class="button secondary small" href="mailto:team@knighthacks.org">Or email us directly</a>
+        </p>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>

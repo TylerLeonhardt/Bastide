@@ -1,29 +1,26 @@
 // Foundation import
-@import "../_bower_components/foundation/scss/foundation";
+@import '../_bower_components/foundation/scss/foundation';
 
 // Font awesome import
-@import "../_bower_components/font-awesome/scss/font-awesome";
-
-// Fullpage.js import
-// @import "../_bower_components/fullpage.js/jquery.fullPage";
+@import '../_bower_components/font-awesome/scss/font-awesome';
 
 // Variables import
-@import "variables";
+@import 'variables';
 
 // Animations import
-@import "animations";
+@import 'animations';
 
 // Mixins import
-@import "mixins";
+@import 'mixins';
 
 // Helpers import
-@import "helpers";
+@import 'helpers';
 
 // Elements import
-@import "./elements/accordion";
-@import "./elements/buttons";
-@import "./elements/navigation";
-@import "./elements/sections";
+@import './elements/accordion';
+@import './elements/buttons';
+@import './elements/navigation';
+@import './elements/sections';
 
 // Main styles import
-@import "layout";
+@import 'layout';
