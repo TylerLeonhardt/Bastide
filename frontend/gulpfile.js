@@ -6,17 +6,27 @@ var del     = require('del'),
     gulp    = require('gulp'),
     merge   = require('merge-stream'),
     path    = require('path'),
-    plugins = require('gulp-load-plugins')(),
-    yaml    = require('js-yaml');
+    yaml = require('js-yaml'),
+    plugins = require('gulp-load-plugins')({
+      rename: {
+        'gulp-minify-html': 'minifyHtml'
+      }
+    });
 
 // HTML task
 gulp.task('html', function() {
+  var opts = {
+    conditionals: true,
+    spare: true
+  };
+
   return gulp.src(['./_src/**/*.html', '!_src/assets/_bower_components/**/*.html'])
     .pipe(plugins.plumber())
     .pipe(plugins.data(function(file) {
       return yaml.safeLoad(fs.readFileSync('./_data/' + path.basename(file.path) + '.yml', 'utf8'));
     }))
     .pipe(plugins.swig({defaults: {cache: false}}))
+    .pipe(plugins.minifyHtml(opts))
     .pipe(gulp.dest('./_dist/'))
     .pipe(plugins.size({ title: 'html' }));
 });

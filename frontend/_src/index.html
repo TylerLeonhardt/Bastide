@@ -13,19 +13,19 @@
     <script src="assets/js/modernizr.js"></script>
 
     <link href="http://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
-    <nav class="nav-menu" role="navigation">
-      <button class="nav-menu__button" role="button">
+    <nav class="nav-menu" role="navigation" aria-label="Menu">
+      <button class="nav-menu__button" role="button" aria-haspopup="true" aria-expanded="false">
         <span class="nav-menu__button__bar"></span>
         <span class="nav-menu__button__bar"></span>
         <span class="nav-menu__button__bar"></span>
       </button>
 
-      <ul>
+      <ul aria-hidden="true">
         <li><a href="#home" data-scroll>Home</a></li>
         <li><a href="#about" data-scroll>About</a></li>
         <li><a href="#sponsors" data-scroll>Sponsors</a></li>
@@ -247,9 +247,5 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/foundation.min.js"></script>
     <script src="assets/js/scripts.min.js"></script>
-
-    <script>
-      $(document).foundation();
-    </script>
   </body>
 </html>

@@ -11,6 +11,8 @@
   overflow: hidden;
   width: 100%;
 
+  font-family: $heading-font;
+
   background: rgba(0,0,0,0.8);
   color: transparent;
 
@@ -88,7 +90,7 @@
       display: block;
       padding: rem-calc(12) rem-calc(12);
 
-      font-weight: bold;
+      // font-weight: bold;
       letter-spacing: rem-calc(1);
       text-transform: uppercase;
 
