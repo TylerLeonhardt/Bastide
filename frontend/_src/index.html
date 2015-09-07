@@ -129,8 +129,8 @@
       <p>tea<!-- -->m@knighthacks.org</p>
     </footer>
 
-    <div id="signUpCompletedModal" class="reveal-modal" data-reveal aria-labelledby="signUpModalTitle" aria-hidden="true" role="dialog">
-      <h2 class="text-center no-margin margin--bottom" id="signUpModalTitle">Thanks!</h2>
+    <div id="signUpCompletedModal" class="reveal-modal" data-reveal aria-labelledby="thanksModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="thanksModalTitle">Thanks!</h2>
       Thanks for signing up! We'll be in touch when we have more updates to share.
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
@@ -142,22 +142,22 @@
         <div class="row small-collapse margin--bottom">
           <div class="medium-6 columns">
             <label><span>Name</span>
-              <input type="text" placeholder="John Doe" class="name">
+              <input type="text" placeholder="John Doe" class="name" required>
             </label>
           </div>
           <div class="medium-6 columns">
             <label><span>Email</span>
-              <input type="text" placeholder="hack@knights.ucf.edu" class="email">
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
             </label>
           </div>
           <div class="columns">
             <label><span>School</span>
-              <input type="text" placeholder="University of Central Florida" class="school">
+              <input type="text" placeholder="University of Central Florida" class="school" required>
             </label>
           </div>
         </div>
 
-        <button class="button small" onClick="Bastide.Registration.signup()" type="button">Submit</button>
+        <button class="button small" onClick="Bastide.Registration.signup()" type="button" role="button">Submit</button>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -174,7 +174,7 @@
         <div class="row small-collapse margin--bottom">
           <div class="medium-6 columns">
             <label><span>Name</span>
-              <input type="text" placeholder="John Doe" class="name">
+              <input type="text" placeholder="John Doe" class="name" required>
             </label>
           </div>
           <div class="medium-6 columns">
@@ -189,12 +189,12 @@
           </div>
           <div class="columns">
             <label><span>Message</span>
-              <textarea name="message" id="" cols="30" rows="10" class="message" required></textarea>
+              <textarea class="message" placeholder="Type your message here..." required></textarea>
             </label>
           </div>
         </div>
 
-        <button class="button small" type="button" onClick="Bastide.Contact.sendSponsorEmail();">Submit</button>
+        <button class="button small" type="button" onClick="Bastide.Contact.sendSponsorEmail();" role="button">Submit</button>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -211,23 +211,23 @@
         <div class="row small-collapse margin--bottom">
           <div class="columns">
             <label><span>Name</span>
-              <input type="text" placeholder="John Doe" class="name">
+              <input type="text" placeholder="John Doe" class="name" required>
             </label>
           </div>
           <div class="columns">
             <label><span>Email</span>
-              <input type="text" placeholder="hack@knights.ucf.edu" class="email">
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
             </label>
           </div>
           <div class="columns">
             <label><span>Message</span>
-              <textarea class="message" placeholder="Type your message here..."></textarea>
+              <textarea class="message" placeholder="Type your message here..." required></textarea>
             </label>
           </div>
         </div>
 
         <p class="text-center">
-          <button class="button small" onClick="Bastide.Contact.sendEmail()" type="button">Send</button>
+          <button class="button small" onClick="Bastide.Contact.sendEmail()" type="submit" role="button">Send</button>
           <a class="button secondary small" href="mailto:team@knighthacks.org">Or email us directly</a>
         </p>
       </form>
@@ -236,7 +236,7 @@
     </div>
 
     <div id="emailCompletedModal" class="reveal-modal" data-reveal aria-labelledby="emailCompletedModalTitle" aria-hidden="true" role="dialog">
-      <h2 class="text-center no-margin margin--bottom" id="emailModalTitle">Email sent</h2>
+      <h2 class="text-center no-margin margin--bottom" id="emailCompletedModalTitle">Email sent</h2>
       <p class="text-center">
         Thanks for reaching out to us! We'll reply shortly.
       </p>
@@ -245,7 +245,6 @@
     </div>
 
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/foundation.min.js"></script>
     <script src="assets/js/scripts.min.js"></script>
   </body>
 </html>

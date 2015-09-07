@@ -51,16 +51,17 @@ gulp.task('styles', function() {
 
 // Scripts task
 gulp.task('scripts', function() {
-  var scripts = gulp.src(['./_src/assets/js/**/*.js'])
-    .pipe(plugins.concat('scripts.min.js'))
-    .pipe(plugins.uglify())
+  var modernizr = gulp.src('./_src/assets/_bower_components/foundation/js/vendor/modernizr.js')
     .pipe(gulp.dest('./_dist/assets/js'));
 
-  var foundation = gulp.src([
+  var jquery = gulp.src('./_src/assets/_bower_components/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('./_dist/assets/js'));
+
+  var scripts = gulp.src([
       './_src/assets/_bower_components/foundation/js/foundation/foundation.js',
       //'./_src/assets/_bower_components/foundation/js/foundation/foundation.abide.js',
       //'./_src/assets/_bower_components/foundation/js/foundation/foundation.accordian.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.alert.js',
+      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.alert.js',
       './_src/assets/_bower_components/foundation/js/foundation/foundation.clearing.js',
       //'./_src/assets/_bower_components/foundation/js/foundation/foundation.dropdown.js',
       './_src/assets/_bower_components/foundation/js/foundation/foundation.equalizer.js',
@@ -71,21 +72,16 @@ gulp.task('scripts', function() {
       //'./_src/assets/_bower_components/foundation/js/foundation/foundation.orbit.js',
       './_src/assets/_bower_components/foundation/js/foundation/foundation.reveal.js',
       //'./_src/assets/_bower_components/foundation/js/foundation/foundation.slider.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.tab.js',
+      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.tab.js',
       //'./_src/assets/_bower_components/foundation/js/foundation/foundation.tooltip.js',
       //'./_src/assets/_bower_components/foundation/js/foundation/foundation.topbar.js',
+      './_src/assets/js/**/*.js',
     ])
-    .pipe(plugins.concat('foundation.min.js'))
+    .pipe(plugins.concat('scripts.min.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest('./_dist/assets/js'));
 
-  var modernizr = gulp.src('./_src/assets/_bower_components/foundation/js/vendor/modernizr.js')
-    .pipe(gulp.dest('./_dist/assets/js'));
-
-  var jquery = gulp.src('./_src/assets/_bower_components/jquery/dist/jquery.min.js')
-    .pipe(gulp.dest('./_dist/assets/js'));
-
-  return merge(foundation, jquery, modernizr, scripts)
+  return merge(jquery, modernizr, scripts)
     .pipe(plugins.plumber())
     .pipe(plugins.size({ title: 'scripts' }));
 })
