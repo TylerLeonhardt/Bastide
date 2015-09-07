@@ -17,7 +17,7 @@ var del     = require('del'),
 gulp.task('html', function() {
   var opts = {
     conditionals: true,
-    spare: true
+    quotes: true
   };
 
   return gulp.src(['./_src/**/*.html', '!_src/assets/_bower_components/**/*.html'])
