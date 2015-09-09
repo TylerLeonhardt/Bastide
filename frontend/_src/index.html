@@ -12,9 +12,8 @@
 
     <script src="assets/js/modernizr.js"></script>
 
-    <link href="http://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Hind:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
@@ -41,7 +40,7 @@
 
     <main role="main">
       <section id="home" class="section section--home">
-        <div class="section__content">
+        <div class="section__content no-margin">
           <h1 class="section--home__logo">{{ site.title }}</h1>
 
           <p class="section--home__description lead">{{ site.description }}</p>
@@ -49,9 +48,9 @@
           <p class="section--home__date lead">{{ site.hackathonDate }}</p>
 
           <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
-        </div>
 
-        <a class="button button__down" href="#about" role="button" data-scroll><span class="fa fa-2x fa-angle-down"></span></a>
+          <a class="button button__down" href="#about" role="button" aria-label="Scroll down to content" data-scroll><span class="fa fa-2x fa-angle-down"></span></a>
+        </div>
       </section>
 
       <section id="about" class="section section--about" data-equalizer-watch>
@@ -101,7 +100,7 @@
               <h1>FAQ</h1>
             </header>
 
-            <div class="section__content">
+            <div class="section__content no-margin">
               <div class="faq-columns">
                 {% for faq in faqs %}
                   <div class="faq">
@@ -157,7 +156,7 @@
           </div>
         </div>
 
-        <button class="button small" onClick="Bastide.Registration.signup()" type="submit" role="button">Submit</button>
+        <button class="button small" onClick="Bastide.Registration.signup()" type="button" role="button">Submit</button>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -194,7 +193,7 @@
           </div>
         </div>
 
-        <button class="button small" type="submit" onClick="Bastide.Contact.sendSponsorEmail();" role="button">Submit</button>
+        <button class="button small" type="button" onClick="Bastide.Contact.sendSponsorEmail();" role="button">Submit</button>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -227,7 +226,7 @@
         </div>
 
         <p class="text-center">
-          <button class="button small" onClick="Bastide.Contact.sendEmail()" type="submit" role="button">Send</button>
+          <button class="button small" onClick="Bastide.Contact.sendEmail()" type="button" role="button">Send</button>
           <a class="button secondary small" href="mailto:team@knighthacks.org">Or email us directly</a>
         </p>
       </form>

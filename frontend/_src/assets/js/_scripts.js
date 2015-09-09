@@ -3,12 +3,12 @@ $(document).ready(function() {
     smoothScroll.init();
 
     $('.nav-menu__button').click(function(e) {
+      $('.nav-menu').toggleClass('active');
+
       if (!$('.nav-menu').hasClass('active')) {
-        $('.nav-menu').addClass('active');
         $('.nav-menu__button').attr('aria-expanded', 'true');
         $('.nav-menu ul').attr('aria-hidden', 'false');
       } else {
-        $('.nav-menu').removeClass('active');
         $('.nav-menu__button').attr('aria-expanded', 'false');
         $('.nav-menu ul').attr('aria-hidden', 'true');
       }
