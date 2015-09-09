@@ -1,14 +1,35 @@
 if (!window.Bastide) window.Bastide = {};
 window.Bastide.Contact = {
     sendEmail: function() {
+        var nameInput = document.querySelector('#emailModal .name'),
+            emailInput = document.querySelector('#emailModal .email'),
+            bodyInput = document.querySelector('#emailModal .message');
+
         var params = {
-            name: document.querySelector('#emailModal .name').value,
-            email: document.querySelector('#emailModal .email').value,
-            body: document.querySelector('#emailModal .message').value,
+            name: nameInput.value,
+            email: emailInput.value,
+            body: bodyInput.value,
         };
-        if (!_validateEmail(params.email)) {
-            document.querySelector('#emailModal .errors').className += ' visible';
-            return;
+
+        var error = false;
+        if (!params.name) {
+            error = true;
+            nameInput.className += " invalid";
+        }
+        if (!params.email || !Bastide.Helpers.validateEmail(params.email)) {
+            error = true;
+            emailInput.className += " invalid";
+        }
+        if (!params.body) {
+            error = true;
+            bodyInput.className += " invalid";
+        }
+        var errorMessage = document.querySelector('#emailModal .errors');
+        if (error) {
+            errorMessage.className += ' visible';
+            return false;
+        } else {
+            errorMessage.className = errorMessage.className.replace(/ visible/g, '');
         }
         if (window.DEV)
             _handleEmailCompleted();
@@ -16,16 +37,38 @@ window.Bastide.Contact = {
             Bastide.ajax("/api/contact/email", params, _handleEmailCompleted);
     },
     sendSponsorEmail: function() {
+        var nameInput = document.querySelector('#sponsorsModal .name'),
+            emailInput = document.querySelector('#sponsorsModal .email'),
+            bodyInput = document.querySelector('#sponsorsModal .message'),
+            companyInput = document.querySelector('#sponsorsModal .company');
         var params = {
-            name: document.querySelector('#sponsorsModal .name').value,
-            email: document.querySelector('#sponsorsModal .email').value,
-            body: document.querySelector('#sponsorsModal .message').value,
-            company: document.querySelector('#sponsorsModal .company').value,
+            name: nameInput.value,
+            email: emailInput.value,
+            body: bodyInput.value,
+            company: companyInput.value,
         };
-        if (!_validateEmail(params.email)) {
-            document.querySelector('#sponsorsModal .errors').className += ' visible';
-            return;
+
+        var error = false;
+        if (!params.name) {
+            error = true;
+            nameInput.className += " invalid";
         }
+        if (!params.email || !Bastide.Helpers.validateEmail(params.email)) {
+            error = true;
+            emailInput.className += " invalid";
+        }
+        if (!params.body) {
+            error = true;
+            bodyInput.className += " invalid";
+        }
+        var errorMessage = document.querySelector('#sponsorsModal .errors');
+        if (error) {
+            errorMessage.className += ' visible';
+            return false;
+        } else {
+            errorMessage.className = errorMessage.className.replace(/ visible/g, '');
+        }
+
         if (window.DEV)
             _handleEmailCompleted();
         else
@@ -41,15 +84,4 @@ function _handleEmailCompleted(data) {
     } else {
         alert("There was a problem sending your email. Please make sure all fields are filled out properly. If this problem persists, send us an email with your mail client to team@knighthacks.org");
     }
-}
-
-function _validateEmail(email) {
-    // We're going to be really loose about this, just up to the point where Mandrill will probably not complain
-    if (
-        email.indexOf("@") === -1 ||
-        email.indexOf(".") === -1
-    ) {
-        return false;
-    }
-    return true;
 }

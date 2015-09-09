@@ -16,7 +16,7 @@ window.Bastide.Registration = {
             error = true;
             nameInput.className += " invalid";
         }
-        if (!params.email) {
+        if (!params.email || !Bastide.Helpers.validateEmail(params.email)) {
             error = true;
             emailInput.className += " invalid";
         }
