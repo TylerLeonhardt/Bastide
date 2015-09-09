@@ -2,15 +2,15 @@ $(document).ready(function() {
     $(document).foundation();
     smoothScroll.init();
 
-    var navButtonActive = false;
-
     $('.nav-menu__button').click(function(e) {
-      if (!navButtonActive) {
-        $(this).parent().addClass('active');
-        navButtonActive = true;
+      $('.nav-menu').toggleClass('active');
+
+      if (!$('.nav-menu').hasClass('active')) {
+        $('.nav-menu__button').attr('aria-expanded', 'true');
+        $('.nav-menu ul').attr('aria-hidden', 'false');
       } else {
-        $(this).parent().removeClass('active');
-        navButtonActive = false;
+        $('.nav-menu__button').attr('aria-expanded', 'false');
+        $('.nav-menu ul').attr('aria-hidden', 'true');
       }
     });
 

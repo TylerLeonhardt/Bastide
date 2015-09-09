@@ -15,6 +15,10 @@
   }
 
   &__down {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
     margin: 0;
     width: 100%;
 
@@ -35,5 +39,15 @@
     padding: rem-calc(11) rem-calc(22) rem-calc(12) rem-calc(22);
 
     font-size: rem-calc(18);
+  }
+
+  &.secondary {
+    background: transparent;
+    border-color: darken($gray, 25%);
+    color: darken($gray, 25%);
+
+    &:hover {
+      background-color: darken($gray, 25%);
+    }
   }
 }
