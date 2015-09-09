@@ -108,6 +108,10 @@ form[role=form] {
       &:focus {
         background-color: transparent;
       }
+
+      &.invalid {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
     }
   }
 
