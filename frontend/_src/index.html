@@ -146,20 +146,23 @@
       <h2 class="text-center no-margin margin--bottom" id="signUpModalTitle">Sign Up</h2>
 
       <form role="form">
+        <div class="errors alert-box alert">
+          Please review the form and ensure all fields are filled out properly.
+        </div>
         <div class="row small-collapse margin--bottom">
           <div class="medium-6 columns">
             <label><span>Name</span>
-              <input type="text" placeholder="John Doe" class="name" required>
+              <input type="text" placeholder="John Doe" class="name" required onkeydown="this.className='name'">
             </label>
           </div>
           <div class="medium-6 columns">
             <label><span>Email</span>
-              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required onkeydown="this.className='email'">
             </label>
           </div>
           <div class="columns">
             <label><span>School</span>
-              <input type="text" placeholder="University of Central Florida" class="school" required>
+              <input type="text" placeholder="University of Central Florida" class="school" required onkeydown="this.className='school'">
             </label>
           </div>
         </div>
@@ -175,18 +178,18 @@
 
       <form role="form">
         <div class="errors alert-box alert">
-          Please make sure you have provided a valid email address.
+          Please review the form and ensure all fields are filled out properly.
         </div>
 
         <div class="row small-collapse margin--bottom">
           <div class="medium-6 columns">
             <label><span>Name</span>
-              <input type="text" placeholder="John Doe" class="name" required>
+              <input type="text" placeholder="John Doe" class="name" required onkeydown="this.className='name'">
             </label>
           </div>
           <div class="medium-6 columns">
             <label><span>Email</span>
-              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required onkeydown="this.className='email'">
             </label>
           </div>
           <div class="columns">
@@ -196,7 +199,7 @@
           </div>
           <div class="columns">
             <label><span>Message</span>
-              <textarea class="message" placeholder="Type your message here..." required></textarea>
+              <textarea class="message" placeholder="Type your message here..." required onkeydown="this.className='message'"></textarea>
             </label>
           </div>
         </div>
@@ -212,23 +215,23 @@
 
       <form role="form">
         <div class="errors alert-box alert">
-          Please make sure you have provided a valid email address.
+          Please review the form and ensure all fields are filled out properly.
         </div>
 
         <div class="row small-collapse margin--bottom">
           <div class="columns">
             <label><span>Name</span>
-              <input type="text" placeholder="John Doe" class="name" required>
+              <input type="text" placeholder="John Doe" class="name" required onkeydown="this.className='name'">
             </label>
           </div>
           <div class="columns">
             <label><span>Email</span>
-              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required onkeydown="this.className='email'">
             </label>
           </div>
           <div class="columns">
             <label><span>Message</span>
-              <textarea class="message" placeholder="Type your message here..." required></textarea>
+              <textarea class="message" placeholder="Type your message here..." required onkeydown="this.className='message'"></textarea>
             </label>
           </div>
         </div>
