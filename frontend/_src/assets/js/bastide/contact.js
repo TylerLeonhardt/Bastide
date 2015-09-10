@@ -31,6 +31,9 @@ window.Bastide.Contact = {
         } else {
             errorMessage.className = errorMessage.className.replace(/ visible/g, '');
         }
+
+        document.querySelector('#sponsorsModal .button').className += ' loading';
+
         if (window.DEV)
             _handleEmailCompleted();
         else
@@ -69,6 +72,8 @@ window.Bastide.Contact = {
             errorMessage.className = errorMessage.className.replace(/ visible/g, '');
         }
 
+        document.querySelector('#sponsorsModal .button').className += ' loading';
+
         if (window.DEV)
             _handleEmailCompleted();
         else
@@ -77,10 +82,16 @@ window.Bastide.Contact = {
 };
 
 function _handleEmailCompleted(data) {
+    var sponsorsButton = document.querySelector('#sponsorsModal .button');
+    var emailButton = document.querySelector('#emailModal .button');
+    sponsorsButton.className = sponsorsButton.className.replace(/ loading/g, '');
+    emailButton.className = emailButton.className.replace(/ loading/g, '');
     if (data) {
-        $('#emailCompletedModal').foundation('reveal', 'open');
         $('#emailModal').foundation('reveal', 'close');
         $('#sponsorsModal').foundation('reveal', 'close');
+        setTimeout(function() {
+            $('#emailCompletedModal').foundation('reveal', 'open');
+        }, 250);
     } else {
         alert("There was a problem sending your email. Please make sure all fields are filled out properly. If this problem persists, send us an email with your mail client to team@knighthacks.org");
     }

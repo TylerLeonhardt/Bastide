@@ -40,6 +40,8 @@ window.Bastide.Registration = {
 };
 
 function _handleSignupCompleted(data) {
-    $('#signUpCompletedModal').foundation('reveal', 'open');
     $('#signUpModal').foundation('reveal', 'close');
+    setTimeout(function() {
+        $('#signUpCompletedModal').foundation('reveal', 'open');
+    }, 250);
 }
