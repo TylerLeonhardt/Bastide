@@ -11,7 +11,7 @@ module.exports = function(app) {
       return;
     }
 
-    yield db.query("INSERT into `mailinglist` (email, ip) VALUES (" + db.escape(email) + "," + db.escape(token) + ", " + db.escape(this.request.cfip) + ")");
+    yield db.query("INSERT into `mailinglist` (email, ip) VALUES (" + db.escape(email) + ", " + db.escape(this.request.cfip) + ")");
 
     this.body = { callback: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" };
   }
