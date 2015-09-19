@@ -103,8 +103,17 @@ gulp.task('clear', function(done) {
   return require('gulp-cache').clearAll(done);
 });
 
+// Static task -- puts static files into dist
+gulp.task('static', function() {
+  return gulp.src('./_src/public/**/*')
+    .pipe(plugins.plumber())
+    .pipe(gulp.dest('./_dist/'))
+    .pipe(plugins.size({ title: 'static' }));
+});
+
+
 // Build task
-gulp.task('build', ['html', 'styles', 'scripts', 'fonts', 'images']);
+gulp.task('build', ['static', 'html', 'styles', 'scripts', 'fonts', 'images']);
 
 // Watch task
 gulp.task('watch', function() {
