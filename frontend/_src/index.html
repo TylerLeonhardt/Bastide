@@ -113,7 +113,7 @@
                 {% for faq in faqs %}
                   <div class="faq">
                     <h3 id="question-{{ loop.key + 1 }}-heading">{{ faq.question }}</h3>
-                    <p>{{ faq.answer }}</p>
+                    <p>{{ faq.answer | safe }}</p>
                   </div>
                 {% endfor %}
               </div>
