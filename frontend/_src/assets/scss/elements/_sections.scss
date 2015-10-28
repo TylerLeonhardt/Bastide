@@ -110,6 +110,16 @@
     }
   }
 
+  &--sponsors-logos {
+    background-color: #fff;
+
+    img {
+      @media #{$medium-up} {
+        max-width: 300px;
+      }
+    }
+  }
+
   &--faq {
     background-color: $dark-gray;
     color: fade-out($white, 0.3);
