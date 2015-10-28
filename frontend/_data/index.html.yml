@@ -2,7 +2,8 @@
   site:
     title: "Knight Hacks"
     description: "Giving people a space to learn and do things they’ve never done before"
-    contact: "contact@knighthacks.org"
+    metaDescription: "The official website of the Knight Hacks hackathon, happening January 15th at UCF."
+    contact: "team@knighthacks.org"
     socialLinks:
       facebook: "//www.facebook.com/knighthacks"
       twitter: "//twitter.com/knighthacks"
