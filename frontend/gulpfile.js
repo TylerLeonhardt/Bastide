@@ -1,88 +1,135 @@
-// Generated on 2015-05-31 using generator-jekyllized 0.7.3
 'use strict';
 
+// Gulp plugins
 var del     = require('del'),
     fs      = require('fs'),
     gulp    = require('gulp'),
     merge   = require('merge-stream'),
     path    = require('path'),
-    yaml = require('js-yaml'),
+    swig    = require('swig'),
+    yaml    = require('js-yaml'),
     plugins = require('gulp-load-plugins')({
-      rename: {
-        'gulp-minify-html': 'minifyHtml'
+      rename: { // Make sure these non-standard named gulp plugins load correctly
+        'gulp-front-matter': 'frontMatter',
       }
     });
 
+// Plugin configs
+var htmlminOpts = {
+  removeAttributeQuotes: false,
+  removeComments: true,
+  collapseWhitespace: true,
+  removeRedundantAttributes: false,
+  removeStyleLinkTypeAttributes: true,
+  minifyJS: true,
+  minifyCSS: true,
+  minifyURLs: true
+}
+
+swig.setDefaults({ cache: false });
+
 // HTML task
 gulp.task('html', function() {
-  var opts = {
-    conditionals: true,
-    quotes: true
-  };
-
-  return gulp.src(['./_src/**/*.html', '!_src/assets/_bower_components/**/*.html'])
+  return gulp.src([
+    './_src/**/*.html',
+    '!./_src/assets/',
+    '!./_src/assets/**'
+  ])
     .pipe(plugins.plumber())
+    .pipe(plugins.frontMatter({ property: 'page', remove: true }))
     .pipe(plugins.data(function(file) {
-      return yaml.safeLoad(fs.readFileSync('./_data/' + path.basename(file.path) + '.yml', 'utf8'));
+      return {
+        site: yaml.safeLoad(fs.readFileSync('./_data/config.yml', 'utf8')),
+        page: file.page
+      };
     }))
-    .pipe(plugins.swig({defaults: {cache: false}}))
-    .pipe(plugins.minifyHtml(opts))
-    .pipe(gulp.dest('./_dist/'))
+    .pipe(plugins.tap(function(file) {
+      var tpl  = swig.compileFile(file.path),
+          data = {
+            site: file.data.site,
+            page: file.data.page,
+            content: file.contents.toString()
+          }
+
+      file.contents = new Buffer(tpl(data), 'utf8');
+    }))
+    .pipe(plugins.htmlmin(htmlminOpts))
+    .pipe(plugins.rename('index.html'))
+    .pipe(gulp.dest(function(file) {
+      if (!file.data.page.homepage) {
+        return path.join('./_dist', file.data.page.slug);
+      } else {
+        return './_dist';
+      }
+    }))
     .pipe(plugins.size({ title: 'html' }));
+});
+
+// Content task
+gulp.task('content', function() {
+  return gulp.src([
+    './_src/**/*.md',
+    '!./_src/assets/',
+    '!./_src/assets/**'
+  ])
+    .pipe(plugins.plumber())
+    .pipe(plugins.frontMatter({ property: 'page', remove: true }))
+    .pipe(plugins.data(function(file) {
+      return {
+        site: yaml.safeLoad(fs.readFileSync('./_data/config.yml', 'utf8')),
+        page: file.page
+      };
+    }))
+    .pipe(plugins.marked())
+    .pipe(plugins.tap(function(file) {
+      var tpl  = swig.compileFile('./_src/assets/templates/' + file.data.page.template + '.html'),
+          data = {
+            site: file.data.site,
+            page: file.data.page,
+            content: file.contents.toString()
+          }
+
+      file.contents = new Buffer(tpl(data), 'utf8');
+    }))
+    .pipe(plugins.htmlmin(htmlminOpts))
+    .pipe(plugins.rename('index.html'))
+    .pipe(gulp.dest(function(file) {
+      return path.join('./_dist', file.data.page.slug);
+    }))
+    .pipe(plugins.size({ title: 'content' }));
 });
 
 // Fonts task
 gulp.task('fonts', function() {
-  return gulp.src(['./_src/assets/fonts/**/*', './_src/assets/_bower_components/font-awesome/fonts/**/*'])
+  return gulp.src([
+    './_src/assets/font/**/*',
+  ])
     .pipe(plugins.plumber())
-    .pipe(gulp.dest('./_dist/assets/fonts'))
+    .pipe(gulp.dest('./_dist/assets/font'))
     .pipe(plugins.size({ title: 'fonts' }));
 });
 
 // SCSS task
 gulp.task('styles', function() {
   return gulp.src('./_src/assets/scss/styles.scss')
-    .pipe(plugins.sass({outputStyle: 'compressed'}))
     .pipe(plugins.plumber())
+    .pipe(plugins.sass({outputStyle: 'compressed'}))
     .pipe(plugins.autoprefixer('last 1 version'))
+    .pipe(plugins.rename('styles.min.css'))
     .pipe(gulp.dest('./_dist/assets/css'))
     .pipe(plugins.size({ title: 'styles' }));
 });
 
 // Scripts task
 gulp.task('scripts', function() {
-  var modernizr = gulp.src('./_src/assets/_bower_components/foundation/js/vendor/modernizr.js')
-    .pipe(gulp.dest('./_dist/assets/js'));
-
-  var jquery = gulp.src('./_src/assets/_bower_components/jquery/dist/jquery.min.js')
-    .pipe(gulp.dest('./_dist/assets/js'));
-
   var scripts = gulp.src([
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.abide.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.accordian.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.alert.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.clearing.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.dropdown.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.equalizer.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.interchange.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.joyride.js',
-      // './_src/assets/_bower_components/foundation/js/foundation/foundation.magellan.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.offcanvas.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.orbit.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.reveal.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.slider.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.tab.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.tooltip.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.topbar.js',
       './_src/assets/js/**/*.js',
     ])
     .pipe(plugins.concat('scripts.min.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest('./_dist/assets/js'));
 
-  return merge(jquery, modernizr, scripts)
-    .pipe(plugins.plumber())
+  return scripts.pipe(plugins.plumber())
     .pipe(plugins.size({ title: 'scripts' }));
 })
 
@@ -99,11 +146,7 @@ gulp.task('images', function() {
     .pipe(plugins.size({ title: 'images' }));
 });
 
-gulp.task('clear', function(done) {
-  return require('gulp-cache').clearAll(done);
-});
-
-// Static task -- puts static files into dist
+// Static resources
 gulp.task('static', function() {
   return gulp.src('./_src/public/**/*')
     .pipe(plugins.plumber())
@@ -111,13 +154,17 @@ gulp.task('static', function() {
     .pipe(plugins.size({ title: 'static' }));
 });
 
+// Clear cache
+gulp.task('clear', function(done) {
+  return require('gulp-cache').clearAll(done);
+});
 
 // Build task
-gulp.task('build', ['static', 'html', 'styles', 'scripts', 'fonts', 'images']);
+gulp.task('build', ['static', 'html', 'content', 'styles', 'scripts', 'fonts', 'images']);
 
 // Watch task
 gulp.task('watch', function() {
-  gulp.watch(['./_src/**/*.html', '_data/*.yml'], ['html']);
+  gulp.watch(['./_src/**/*.html', './_src/**/*.md', '_data/*.yml'], ['html', 'content']);
   gulp.watch(['./_src/**/*.xml', './_src/**/*.txt'], ['build']);
   gulp.watch(['./_src/assets/scss/**/*.scss'], ['styles']);
   gulp.watch(['./_src/assets/js/**/*.js'], ['scripts']);
