@@ -14,6 +14,11 @@
     color: $white;
   }
 
+  &.highlighted {
+    background-color: $teal;
+    color: $white;
+  }
+
   &__down {
     position: absolute;
     bottom: 0;
