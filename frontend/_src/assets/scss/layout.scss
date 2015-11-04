@@ -189,11 +189,34 @@ footer[role=contentinfo] {
   }
 }
 
-.reveal-modal .errors {
+.errors {
   display: none;
 
   &.visible {
     display: block;
+  }
+}
+
+.single-page-registration-form {
+  transition: all 0.25s ease;
+  &.success {
+    opacity: 0;
+  }
+  &.hidden {
+    height: 200px;
+    overflow: hidden;
+  }
+}
+.single-page-registration-success {
+  display: block;
+  opacity: 0;
+  height: 0;
+  transition: opacity 1s ease;
+  overflow: hidden;
+
+  &.visible {
+    opacity: 1;
+    height: auto;
   }
 }
 

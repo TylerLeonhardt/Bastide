@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Register for Knight Hacks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Register for the Knight Hacks Hackathon">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <script src="/assets/js/modernizr.js"></script>
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Hind:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-61845830-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+  </head>
+  <body>
+    <main role="main">
+      <section id="home" class="section section--home section--register">
+        <div class="section__content no-margin">
+          <h1 class="section--home__logo">{{ site.title }}</h1>
+
+          <div class="single-page-registration-success">
+            <h2>Thanks!</h2>
+            <p>We'll let you know as soon as we have more news.</p>
+            <p>See you in January!</p>
+            <p>(*^‿^*)</p>
+          </div>
+    <form role="form" id="signUpModal" class="single-page-registration-form">
+      <h2 class="text-center no-margin margin--bottom">Register</h2>
+      <div class="errors alert-box alert">
+        Please review the form and ensure all fields are filled out properly.
+      </div>
+      <div class="row small-collapse margin--bottom">
+        <div class="medium-6 columns">
+          <label><span>Name</span>
+            <input type="text" placeholder="John Doe" class="name" required onkeydown="this.className='name'">
+          </label>
+        </div>
+        <div class="medium-6 columns">
+          <label><span>Email</span>
+            <input type="email" placeholder="hack@knights.ucf.edu" class="email" required onkeydown="this.className='email'">
+          </label>
+        </div>
+        <div class="columns">
+          <label><span>School</span>
+            <input type="text" placeholder="University of Central Florida" class="school" required onkeydown="this.className='school'">
+          </label>
+        </div>
+      </div>
+
+      <button class="button small" onClick="Bastide.Registration.signup()" type="button" role="button">Register</button>
+    </form>
+        </div>
+      </section>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/scripts.min.js"></script>
+  </body>
+</html>
+
