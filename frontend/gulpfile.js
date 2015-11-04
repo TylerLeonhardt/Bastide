@@ -81,7 +81,14 @@ gulp.task('scripts', function() {
     .pipe(plugins.uglify())
     .pipe(gulp.dest('./_dist/assets/js'));
 
-  return merge(jquery, modernizr, scripts)
+  var littlescripts = gulp.src([
+      './_src/assets/js/bastide/**/*.js',
+    ])
+    .pipe(plugins.concat('littlescripts.min.js'))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest('./_dist/assets/js'));
+
+  return merge(jquery, modernizr, scripts, littlescripts)
     .pipe(plugins.plumber())
     .pipe(plugins.size({ title: 'scripts' }));
 })

@@ -40,11 +40,16 @@ window.Bastide.Registration = {
 };
 
 function _handleSignupCompleted(data) {
-    $('#signUpModal').foundation('reveal', 'close');
-    $('.single-page-registration-form').addClass('success');
+    if (window['$'])
+        $('#signUpModal').foundation('reveal', 'close');
+    else
+        document.querySelector('.single-page-registration-form').className += ' success';
     setTimeout(function() {
-        $('#signUpCompletedModal').foundation('reveal', 'open');
-        $('.single-page-registration-form').addClass('hidden');
-        $('.single-page-registration-success').addClass('visible');
+        if (window['$'])
+            $('#signUpCompletedModal').foundation('reveal', 'open');
+        else {
+            document.querySelector('.single-page-registration-form').className += ' hidden';
+            document.querySelector('.single-page-registration-success').className += ' visible';
+        }
     }, 250);
 }
