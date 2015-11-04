@@ -7,6 +7,7 @@ var normalizer = require("school_normalizer");
 
 module.exports = function(app) {
   app.use(route.post('/api/registration/signup', signup));
+  app.use(route.get('/api/registration/csv/:key', get_csv));
 
   function *signup() {
     var response = this.request.body || {};
@@ -16,5 +17,26 @@ module.exports = function(app) {
     this.body = { status: 'yay' };
   }
   // name email company message
+
+  function *get_csv(key) {
+    if (key === config.secret_key) {
+      var results = yield db.query("SELECT * FROM `signups`");
+      var csvdata = "";
+
+      results[0].forEach(function(result) {
+	for (key in result) {
+	  if (key == "school") {
+	    result[key] = normalizer.getStandardName(result[key] || "unknown");
+	  }
+	  csvdata += result[key] + ",";
+	}
+	csvdata += "\n";
+      });
+      this.body = csvdata;
+    } else {
+      this.body = null;
+      this.status = 404;
+    }
+  }
 };
 
