@@ -41,7 +41,10 @@ window.Bastide.Registration = {
 
 function _handleSignupCompleted(data) {
     $('#signUpModal').foundation('reveal', 'close');
+    $('.single-page-registration-form').addClass('success');
     setTimeout(function() {
         $('#signUpCompletedModal').foundation('reveal', 'open');
+        $('.single-page-registration-form').addClass('hidden');
+        $('.single-page-registration-success').addClass('visible');
     }, 250);
 }

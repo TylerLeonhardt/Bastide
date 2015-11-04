@@ -82,6 +82,28 @@
     }
   }
 
+  &--register {
+    padding-top: 100px;
+    color: #fff;
+    h2 {
+      color: #fff;
+    }
+    form[role=form] {
+      display: block;
+      label {
+        background: #2e2e2e;
+        border: solid 1px #383838;
+      }
+      span {
+        text-align: left;
+        color: rgba(255,255,255,0.55);
+      }
+      input {
+        color: #fff;
+      }
+    }
+  }
+
   &--about {
     background-color: $lavender;
 
