@@ -135,11 +135,22 @@
 
   &--sponsors-logos {
     background-color: #fff;
+    height: auto;
+    padding: 0;
+    padding-top: 40px;
+
+    a {
+      display: block;
+      margin-bottom: 40px;
+    }
 
     img {
       @media #{$medium-up} {
         max-width: 300px;
       }
+    }
+    img.small {
+      max-width: 200px;
     }
   }
 
