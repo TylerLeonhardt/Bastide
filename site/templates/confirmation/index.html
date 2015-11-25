@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Knight Hacks Confirmation</title>
+		<link href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Hind:300,400,700" rel="stylesheet">
+		<style>
+			body {
+				text-align: center;
+				background: #404040;
+				font-family: 'Raleway';
+			}
+			img {
+				display: block;
+				position: relative;
+				margin: auto;
+				margin-top: 50px;
+			}
+			input {
+				margin: 10px;
+				padding: 5px;
+				font-size: 30px;
+			}
+			.welcome {
+				font-size: 24px;
+				color: #fff;
+			}
+		</style>
+		<script>
+function setPercent(percent) {
+	var text = "[";
+	var MAX = 20;
+	var numEquals = (percent / 100 * MAX);
+	for (var i = 0; i < numEquals; i++) {
+		text += "=";
+	}
+	text += ">";
+	for (var i = 0; i < (MAX - numEquals); i++) {
+		text += " ";
+	}
+	text += "] " + (Math.floor(percent) + "%");
+	document.getElementById("equals").innerHTML = text;
+}
+function startLoading(percent) {
+	setPercent(percent);
+	if (percent < 100) {
+		setTimeout("startLoading(" + (percent + 5) + ")", 50);
+	}
+}
+setTimeout(function() {
+			startLoading(0);
+}, 10);
+		</script>
+	</head>
+	<body>
+		<img src="/assets/img/logo.png" width="500"><br>
+		<div class="welcome">
+			You're going to Knight Hacks!<br>Submit the form below to save your seat.
+		</div>
+		<input type="text" placeholder="Name" disabled value="{{ name }}"><br>
+		<select>
+			<option disabled selected>T-shirt size</option>
+			<option>S</option>
+			<option>M</option>
+			<option>L</option>
+			<option>Women's fitted S</option>
+			<option>Women's fitted M</option>
+			<option>Women's fitted L</option>
+			<option>XL</option>
+			<option>XXL</option>
+			<option>XXXL</option>
+		</select>
+
+		<input type="text" placeholder="T-shirt size (S, "><br>
+		Do you have any dietary restrictions?
+		<input type="radio" name="dietary" value="0">
+		<input type="radio" name="dietary" value="1">
+		<input type="text" placeholder="Dietary Restrictions"><br>
+		<label for="transport-1">I can come without transportation</label>
+		<input type="radio" name="come-without-transport" id="transport-1" value="0">
+		<label for="transport-2">I require transportation to attend</label>
+		<input type="radio" name="come-without-transport" id="transport-2" value="1">
+
+		<label for="agree">I agree to abide by the code of conduct</label>
+		<input type="checkbox" id="agree" value="1">
+		<label for="resume-file">Option: Share your resume!</label>
+		<input type="file" id="resume-file">
+		<button class="submit" id="submit-form">Submit!</button>
+		<div class="loading-box">
+			<div id="equals" style="font-family: monospace; white-space: pre; color: #fff;"></div>
+		</div>
+	</body>
+</html>
+
