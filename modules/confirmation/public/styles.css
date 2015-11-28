@@ -1,0 +1,23 @@
+body {
+	text-align: center;
+	background: #404040;
+	font-family: 'Raleway';
+}
+img {
+	display: block;
+	position: relative;
+	margin: auto;
+	margin-top: 50px;
+}
+input, select, option {
+	margin: 10px;
+	padding: 5px;
+	font-size: 30px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.welcome {
+	font-size: 24px;
+	color: #fff;
+}
