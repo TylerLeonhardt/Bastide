@@ -1,7 +1,7 @@
 body {
-	text-align: center;
 	background: #404040;
 	font-family: 'Raleway';
+	color: #fff;
 }
 img {
 	display: block;
@@ -9,15 +9,43 @@ img {
 	margin: auto;
 	margin-top: 50px;
 }
-input, select, option {
+input, select {
 	margin: 10px;
-	padding: 5px;
+	padding: 10px;
 	font-size: 30px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+	width: 300px;
+	display: block;
+	position: relative;
+	margin: auto;
+	margin-bottom: 10px;
+	border: solid 1px #aaa;
+	border-radius: 0px;
+}
+input[type=checkbox], input[type=radio] {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 5px;
+	width: auto;
+}
+label {
+	display: inline-block;
+	vertical-align: top;
 }
 .welcome {
 	font-size: 24px;
 	color: #fff;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.radio-item {
+	position: relative;
+	margin: auto;
+	width: 340px;
+}
+.form {
+	margin: auto;
+	width: 500px;
+	background: #fafafa;
+	color: #444;
+	padding: 15px;
 }

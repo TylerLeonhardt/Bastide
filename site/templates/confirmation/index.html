@@ -11,35 +11,42 @@
 		<div class="welcome">
 			You're going to Knight Hacks!<br>Submit the form below to save your seat.
 		</div>
-		<input type="text" placeholder="Name" disabled value="{{ name }}"><br>
-		<select>
-			<option disabled selected>T-shirt size</option>
-			<option>S</option>
-			<option>M</option>
-			<option>L</option>
-			<option>Women's fitted S</option>
-			<option>Women's fitted M</option>
-			<option>Women's fitted L</option>
-			<option>XL</option>
-			<option>XXL</option>
-			<option>XXXL</option>
-		</select>
-		Do you have any dietary restrictions?
-		<input type="radio" name="dietary" value="0">
-		<input type="radio" name="dietary" value="1">
-		<input type="text" placeholder="Dietary Restrictions"><br>
-		<label for="transport-1">I can come without transportation</label>
-		<input type="radio" name="come-without-transport" id="transport-1" value="0">
-		<label for="transport-2">I require transportation to attend</label>
-		<input type="radio" name="come-without-transport" id="transport-2" value="1">
-
-		<label for="agree">I agree to abide by the code of conduct</label>
-		<input type="checkbox" id="agree" value="1">
-		<label for="resume-file">Option: Share your resume!</label>
-		<input type="file" id="resume-file">
-		<button class="submit" id="submit-form">Submit!</button>
-		<div class="loading-box">
-			<div id="equals" style="font-family: monospace; white-space: pre; color: #fff;"></div>
+		<div class="form">
+			<input type="text" placeholder="Name" disabled value="{{ name }}"><br>
+			<select>
+				<option disabled selected>T-shirt size</option>
+				<option>S</option>
+				<option>M</option>
+				<option>L</option>
+				<option>Women's fitted S</option>
+				<option>Women's fitted M</option>
+				<option>Women's fitted L</option>
+				<option>XL</option>
+				<option>XXL</option>
+				<option>XXXL</option>
+			</select>
+			Do you have any dietary restrictions?
+			<input type="radio" name="dietary" value="0">
+			<input type="radio" name="dietary" value="1">
+			<input type="text" placeholder="Dietary Restrictions"><br>
+			<div class="radio-item">
+				<input type="radio" name="come-without-transport" id="transport-1" value="0">
+				<label for="transport-1">I can come without transportation</label>
+			</div>
+			<div class="radio-item">
+				<input type="radio" name="come-without-transport" id="transport-2" value="1">
+				<label for="transport-2">I require transportation to attend</label>
+			</div>
+			<div class="radio-item">
+				<input type="checkbox" id="agree" value="1">
+				<label for="agree">I agree to abide by the code of conduct</label>
+			</div>
+			<label for="resume-file">Option: Share your resume!</label>
+			<input type="file" id="resume-file">
+			<button class="submit" id="submit-form">Submit!</button>
+			<div class="loading-box">
+				<div id="equals" style="font-family: monospace; white-space: pre; color: #fff;"></div>
+			</div>
 		</div>
 	</body>
 </html>
