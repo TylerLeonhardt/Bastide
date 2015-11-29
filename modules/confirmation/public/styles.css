@@ -9,17 +9,24 @@ img {
 	margin: auto;
 	margin-top: 50px;
 }
-input, select {
+input[type=text] {
 	margin: 10px;
 	padding: 10px;
-	font-size: 30px;
+	font-size: 14px;
+	width: 90%;
+}
+select {
+	margin: 10px;
+	padding: 10px;
+	font-size: 24px;
 	width: 300px;
 	display: block;
 	position: relative;
-	margin: auto;
+	margin-left: 30px;
 	margin-bottom: 10px;
 	border: solid 1px #aaa;
 	border-radius: 0px;
+	background: #fff;
 }
 input[type=checkbox], input[type=radio] {
 	display: inline-block;
@@ -38,9 +45,7 @@ label {
 	margin-bottom: 20px;
 }
 .radio-item {
-	position: relative;
-	margin: auto;
-	width: 340px;
+	margin-left: 30px;
 }
 .form {
 	margin: auto;
@@ -48,4 +53,7 @@ label {
 	background: #fafafa;
 	color: #444;
 	padding: 15px;
+}
+button {
+	margin-top: 20px;
 }

@@ -22,3 +22,11 @@ setTimeout(function() {
   startLoading(0);
 }, 10);
 
+function updateDietary() {
+  var display = "none";
+  if (document.getElementById("dietary-2").checked) {
+    display = "inherit";
+  }
+  document.getElementById("dietary-explain").style.display = display;
+}
+window.onload = function() { updateDietary(); }

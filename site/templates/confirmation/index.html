@@ -12,7 +12,14 @@
 			You're going to Knight Hacks!<br>Submit the form below to save your seat.
 		</div>
 		<div class="form">
-			<input type="text" placeholder="Name" disabled value="{{ name }}"><br>
+			<h2>Hi there!</h2>
+			<div>
+				We think you are:
+				<p>{{ name }}</p>
+				<p>{{ email }}</p>
+				<p>If either of those are incorrect, please contact team@knighthacks.org</p>
+			</div>
+			<h2>T-shirts</h2>
 			<select>
 				<option disabled selected>T-shirt size</option>
 				<option>S</option>
@@ -25,10 +32,17 @@
 				<option>XXL</option>
 				<option>XXXL</option>
 			</select>
-			Do you have any dietary restrictions?
-			<input type="radio" name="dietary" value="0">
-			<input type="radio" name="dietary" value="1">
-			<input type="text" placeholder="Dietary Restrictions"><br>
+			<h2>Any dietary restrictions?</h2>
+			<div class="radio-item">
+				<input type="radio" name="dietary" id="dietary-1" value="0" onclick="updateDietary()">
+				<label for="dietary-1">No</label>
+			</div>
+			<div class="radio-item">
+				<input type="radio" name="dietary" id="dietary-2" value="1" onclick="updateDietary()">
+				<label for="dietary-2">Yes</label>
+				<input type="text" placeholder="Explain" id="dietary-explain"><br>
+			</div>
+			<h2>Transportation</h2>
 			<div class="radio-item">
 				<input type="radio" name="come-without-transport" id="transport-1" value="0">
 				<label for="transport-1">I can come without transportation</label>
@@ -37,12 +51,14 @@
 				<input type="radio" name="come-without-transport" id="transport-2" value="1">
 				<label for="transport-2">I require transportation to attend</label>
 			</div>
+			<h2>Share your resume! (optional)</h2>
+			<input type="file" id="resume-file">
+			<input type="text" id="url" placeholder="Link to website, resume, portfolio, etc.">
+			<h2>Almost there...</h2>
 			<div class="radio-item">
 				<input type="checkbox" id="agree" value="1">
 				<label for="agree">I agree to abide by the code of conduct</label>
 			</div>
-			<label for="resume-file">Option: Share your resume!</label>
-			<input type="file" id="resume-file">
 			<button class="submit" id="submit-form">Submit!</button>
 			<div class="loading-box">
 				<div id="equals" style="font-family: monospace; white-space: pre; color: #fff;"></div>
