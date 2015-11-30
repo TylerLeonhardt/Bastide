@@ -184,6 +184,32 @@
     }
   }
 
+  &--partners {
+
+    .row {
+      header {
+        text-align: center;
+        h1 {
+          color: $dark-gray;
+        }
+      }
+    }
+
+    .section__content {
+      text-align: center;
+
+      img {
+        position: relative;
+        margin: auto;
+
+        @media #{$medium-up} {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+
   header {
     flex: none;
 
