@@ -57,3 +57,6 @@ label {
 button {
 	margin-top: 20px;
 }
+.loading-box {
+	background: #000;
+}

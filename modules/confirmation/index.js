@@ -4,20 +4,25 @@ var render = require('../../render');
 var db = require('../../database');
 var config = require('../../config/general.json');
 var normalizer = require("school_normalizer");
+var fs = require('fs');
 
 module.exports = function(app) {
-  app.use(route.post('/api/registration/signup', signup));
-  app.use(route.get('/api/registration/csv/:key', get_csv));
-  app.use(route.get('/confirm/:user_id/:key', confirm_page));
+  app.use(route.post('/api/confirm', confirm));
+  app.use(route.post('/api/confirm/resume', resume));
+  app.use(route.get('/confirm/:user_id/:token', confirm_page));
 
-  function *confirm_page(key) {
-    this.body = yield render('confirmation/index', {});
+  function *confirm_page(id, token) {
+    var results = yield db.query("SELECT * FROM `confirmations` WHERE id = " + db.escape(id) + " AND token = " + db.escape(token));
+
+    this.body = yield render('confirmation/index', {
+      token: db.escape(token),
+    });
   }
 
-  function *signup() {
+  function *confirm() {
     var response = this.request.body || {};
 
-    yield db.query("INSERT into `signups` (name, email, school, ip) VALUES (" + db.escape(response.name) + "," + db.escape(response.email) + ", " + db.escape(response.school) + ", " + db.escape(this.request.cfip) + ")");
+    yield db.query("UPDATE `confirmations` SET dietary = " + db.escape(response.dietary) + ", tshirt = " + db.escape(response.tshirt) + ", dietary_info = " + db.escape(response.dietary_info) + ", transportation = " + db.escape(response.transportation) + ", resume_url = " + db.escape(response.resume_url) + ", ip = " + db.escape(this.request.cfip) + ", has_confirmed = 1 WHERE id = " + db.escape(response.id) + " AND token = " + db.escape(response.token));
 
     this.body = { status: 'yay' };
   }
@@ -42,6 +47,14 @@ module.exports = function(app) {
       this.body = null;
       this.status = 404;
     }
+  }
+  function *resume() {
+    var response = this.request.body || {};
+    var file = response.resume.split("base64,")[1];
+    fs.writeFile("tmpfiles/" + (new Date).getTime() + ".pdf", file, 'base64', function(err) {
+      console.log(err);
+    });
+    this.body = { status: 'yay' };
   }
 };
 
