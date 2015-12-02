@@ -61,7 +61,10 @@
 			</div>
 			<button class="submit" id="submit-form">Submit!</button>
 			<div class="loading-box">
-				<div id="equals" style="font-family: monospace; white-space: pre; color: #fff;"></div>
+				<div class="background"></div>
+				<h1>Uploading resume...</h1>
+				<p>$ curl -X POST -F "data=@<span id="filename"></span>" https://knighthacks.org/api/confirm/resume</p>
+				<div id="equals"></div>
 			</div>
 		</div>
 	</body>

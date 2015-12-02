@@ -58,5 +58,36 @@ button {
 	margin-top: 20px;
 }
 .loading-box {
-	background: #000;
+    font-family: monospace;
+    color: #fff;
+    position: fixed;
+    top: calc(50% - 100px);
+    bottom: 50%;
+    left: calc(50% - 150px);
+    right: 50%;
+    padding: 20px;
+    background: #000;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+	font-family: monospace;
+	color: #fff;
+}
+.loading-box h1 {
+	text-align: center;
+	font-family: 'Raleway';
+	font-size: 20px;
+	margin: 0;
+}
+.loading-box p {
+	word-wrap: break-word;
+}
+.loading-box .background {
+	display: none;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
 }

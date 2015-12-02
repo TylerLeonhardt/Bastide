@@ -60,6 +60,7 @@ window.onload = function() {
           xhr.send(JSON.stringify({ "resume": e.target.result }));
         };
         // Read in the image file as a data URL.
+        document.getElementById("filename").innerHTML = f.name;
         reader.readAsDataURL(f);
       }
     }
