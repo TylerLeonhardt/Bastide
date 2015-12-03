@@ -9,6 +9,11 @@ var fs = require('fs');
 module.exports = function(app) {
   app.use(route.post('/api/confirm', confirm));
   app.use(route.get('/confirm/:user_id/:token', confirm_page));
+  app.use(route.get('/api/confirm/csv/:key', get_csv));
+
+  function _expired(result) {
+    return ((new Date).getTime() / 1000) > (result.available_since + 3600 * 24 * 3);
+  }
 
   function *confirm_page(id, token) {
     var results = yield db.query("SELECT * FROM `confirmations` WHERE id = " + db.escape(id) + " AND token = " + db.escape(token));
@@ -24,6 +29,8 @@ module.exports = function(app) {
       id: results[0].id,
       email: results[0].email,
       name: results[0].name,
+      expired: _expired(results[0]),
+      done: !!results[0].has_confirmed,
     });
   }
 
@@ -35,6 +42,10 @@ module.exports = function(app) {
     results = results[0];
 
     if (results.length > 0 && results[0].token == response.token) {
+      if (_expired(results[0])) {
+	this.body = { "status": "expired" };
+	return;
+      }
       yield db.query("UPDATE `confirmations` SET dietary = " + db.escape(response.dietary) + ", tshirt = " + db.escape(response.tshirt) + ", dietary_info = " + db.escape(response.dietary_info) + ", transportation = " + db.escape(response.transportation) + ", resume_url = " + db.escape(response.resume_url) + ", ip = " + db.escape(this.request.cfip) + ", has_confirmed = 1 WHERE id = " + db.escape(response.id) + " AND token = " + db.escape(response.token));
 
       if (response.resume) {
@@ -53,7 +64,7 @@ module.exports = function(app) {
 
   function *get_csv(key) {
     if (key === config.secret_key) {
-      var results = yield db.query("SELECT * FROM `signups`");
+      var results = yield db.query("SELECT * FROM `confirmations`");
       var csvdata = "";
 
       results[0].forEach(function(result) {
