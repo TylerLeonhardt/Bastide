@@ -8,23 +8,46 @@ var fs = require('fs');
 
 module.exports = function(app) {
   app.use(route.post('/api/confirm', confirm));
-  app.use(route.post('/api/confirm/resume', resume));
   app.use(route.get('/confirm/:user_id/:token', confirm_page));
 
   function *confirm_page(id, token) {
     var results = yield db.query("SELECT * FROM `confirmations` WHERE id = " + db.escape(id) + " AND token = " + db.escape(token));
+    results = results[0];
+
+    if (results.length < 1) {
+      this.body = "404";
+      return;
+    }
 
     this.body = yield render('confirmation/index', {
-      token: db.escape(token),
+      token: results[0].token,
+      id: results[0].id,
+      email: results[0].email,
+      name: results[0].name,
     });
   }
 
   function *confirm() {
     var response = this.request.body || {};
+    console.log(response);
 
-    yield db.query("UPDATE `confirmations` SET dietary = " + db.escape(response.dietary) + ", tshirt = " + db.escape(response.tshirt) + ", dietary_info = " + db.escape(response.dietary_info) + ", transportation = " + db.escape(response.transportation) + ", resume_url = " + db.escape(response.resume_url) + ", ip = " + db.escape(this.request.cfip) + ", has_confirmed = 1 WHERE id = " + db.escape(response.id) + " AND token = " + db.escape(response.token));
+    var results = yield db.query("SELECT * FROM `confirmations` WHERE id = " + db.escape(response.id) + " AND token = " + db.escape(response.token));
+    results = results[0];
 
-    this.body = { status: 'yay' };
+    if (results.length > 0 && results[0].token == response.token) {
+      yield db.query("UPDATE `confirmations` SET dietary = " + db.escape(response.dietary) + ", tshirt = " + db.escape(response.tshirt) + ", dietary_info = " + db.escape(response.dietary_info) + ", transportation = " + db.escape(response.transportation) + ", resume_url = " + db.escape(response.resume_url) + ", ip = " + db.escape(this.request.cfip) + ", has_confirmed = 1 WHERE id = " + db.escape(response.id) + " AND token = " + db.escape(response.token));
+
+      if (response.resume) {
+	var file = response.resume.split("base64,")[1];
+	fs.writeFile("tmpfiles/" + results[0].id + "_" + (new Date).getTime() + ".pdf", file, 'base64', function(err) {
+	  console.log(err);
+	});
+      }
+
+      this.body = { status: 'yay' };
+    } else {
+      this.body = { status: 'bad token' };
+    }
   }
   // name email company message
 
@@ -47,14 +70,6 @@ module.exports = function(app) {
       this.body = null;
       this.status = 404;
     }
-  }
-  function *resume() {
-    var response = this.request.body || {};
-    var file = response.resume.split("base64,")[1];
-    fs.writeFile("tmpfiles/" + (new Date).getTime() + ".pdf", file, 'base64', function(err) {
-      console.log(err);
-    });
-    this.body = { status: 'yay' };
   }
 };
 

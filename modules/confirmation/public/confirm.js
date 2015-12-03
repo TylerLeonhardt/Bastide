@@ -1,17 +1,3 @@
-function setPercent(percent) {
-  var text = "[";
-  var MAX = 20;
-  var numEquals = (percent / 100 * MAX);
-  for (var i = 0; i < numEquals; i++) {
-    text += "=";
-  }
-  text += ">";
-  for (var i = 0; i < (MAX - numEquals); i++) {
-    text += " ";
-  }
-  text += "] " + (Math.floor(percent) + "%");
-  document.getElementById("equals").innerHTML = text;
-}
 function updateDietary() {
   var display = "none";
   if (document.getElementById("dietary-2").checked) {
@@ -35,7 +21,7 @@ window.onload = function() {
     };
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/confirm");
-    xhr.send(JSON.stringify(form));
+    xhr.setRequestHeader("Content-type", "application/json");
 
     var files = document.getElementById("resume-file").files;
     if (files.length > 0) {
@@ -44,25 +30,13 @@ window.onload = function() {
         // Closure to capture the file information.
         reader.onload = function(e) {
           e = e || window.event;
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "/api/confirm/resume");
-          setPercent(0);
-          xhr.upload.addEventListener("progress", function(e) {
-            console.log(e);
-            if (e.lengthComputable) {
-              var percentComplete = e.loaded / e.total;
-              console.log(percentComplete);
-              setPercent(percentComplete * 100);
-            } else {
-            }
-          });
-          xhr.setRequestHeader("Content-type", "application/json");
-          xhr.send(JSON.stringify({ "resume": e.target.result }));
+          form.resume = e.target.result;
+          xhr.send(JSON.stringify(form));
         };
-        // Read in the image file as a data URL.
-        document.getElementById("filename").innerHTML = f.name;
         reader.readAsDataURL(f);
       }
+    } else {
+      xhr.send(JSON.stringify(form));
     }
   });
 }
