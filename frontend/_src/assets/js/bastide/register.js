@@ -3,7 +3,8 @@ window.Bastide.Registration = {
     signup: function() {
         var nameInput = document.querySelector('#signUpModal .name'),
             emailInput = document.querySelector('#signUpModal .email'),
-            schoolInput = document.querySelector('#signUpModal .school');
+            schoolInput = document.querySelector('#signUpModal .school'),
+            conductInput = document.querySelector('#signUpModal .conduct');
 
         var params = {
             name: nameInput.value,
@@ -12,6 +13,10 @@ window.Bastide.Registration = {
         };
 
         var error = false;
+        if (!conductInput.checked) {
+            error = true;
+            document.querySelector('#signUpModal .plain span').className = 'invalid';
+        }
         if (!params.name) {
             error = true;
             nameInput.className += " invalid";

@@ -44,3 +44,6 @@
     -
       question: "Will there be food?"
       answer: "We’ve got you covered - we’ll be providing enough food and caffeine to power you through the entire hackathon. You’re welcome to bring any snacks and drinks (again, no alcohol) you absolutely can’t live without as well."
+    -
+      question: "Is there a Code of Conduct?"
+      answer: "Yes, we abide by the <a href='http://static.mlh.io/docs/mlh-code-of-conduct.pdf' target='_blank'>Major League Hacking Code of Conduct</a>."

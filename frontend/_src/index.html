@@ -198,7 +198,7 @@
         <div class="errors alert-box alert">
           Please review the form and ensure all fields are filled out properly.
         </div>
-        <div class="row small-collapse margin--bottom">
+        <div class="row small-collapse">
           <div class="medium-6 columns">
             <label><span>Name</span>
               <input type="text" placeholder="John Doe" class="name" required onkeydown="this.className='name'">
@@ -216,7 +216,17 @@
           </div>
         </div>
 
+        <label class="plain">
+          <span>
+            I will at all times abide by and conform to the <a href="http://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">Major League Hacking Code of Conduct</a> while at the event.
+          </span>
+          <input type="checkbox" required class="conduct">
+        </label>
+
         <button class="button small" onClick="Bastide.Registration.signup()" type="button" role="button">Register</button>
+        <p class="disclaimer">
+          We are sanctioned by and participate in, <a href="https://mlh.io/" target="_blank">Major League Hacking</a> (MLH). You authorize us to share certain application/registration information for event administration, ranking, MLH administration, and occasional messages about hackathons in line with the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>.
+        </p>
       </form>
 
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
