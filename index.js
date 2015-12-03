@@ -16,7 +16,7 @@ var app = koa();
 app.use(koaCfIp());
 app.use(koaLog());
 app.use(serve('frontend/_dist'));
-app.use(koaBody());
+app.use(koaBody({ jsonLimit: '50mb' }));
 
 for (var i = 0; i < modules.length; i++) {
   require('./modules/' + modules[i] + '/index.js')(app);

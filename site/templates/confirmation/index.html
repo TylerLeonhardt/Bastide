@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Knight Hacks Confirmation</title>
+		<link href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Hind:300,400,700" rel="stylesheet">
+		<link href="/modules/confirmation/styles.css" rel="stylesheet">
+		<script src="/modules/confirmation/confirm.js"></script>
+		<script>
+			var USER_ID = {{ id }};
+			var TOKEN = "{{ token }}";
+			var ALREADY_DONE = {{ done }};
+			var EXPIRED = {{ expired }};
+		</script>
+	</head>
+	<body>
+		<div class="hidden">
+			We didn't use any frameworks in here, so while it's ugly, the payload is pretty darn small. We're going to spend some of those savings in payload size to bring you an ASCII duck.
+
+			Also, couldn't use an HTML comment because Cloudflare strips those. Good person Cloudflare.
+
+			　　　　　　　　　　　　　／￣￣￣＼
+			　　　　　　　　　　　　/　　　／ 　　 ヽ
+			　　　　　　　　　　　│　　　　　●　__l
+			　　　　　　　　　　　 ｌ　　　　　　　丿　＼
+			　　　　　　　　　＿＿ゝ　　　　　＜──→
+			　　　　　　　／　　　　　　　　　　　￣ｌ￣
+			　　　　　　│　「￣￣￣　　　　　　　 ヽ,
+			　　　　　　 ヽ　＼＿＿＿　　　　　　　　）
+			　　　　　　　 ＼　　　　　　　　　　　　 丿
+			～～～～～～～～～～～～～～～～～～～
+		</div>
+		<img src="/assets/img/logo.png" width="500"><br>
+		<div class="welcome">
+			You're going to Knight Hacks!<br>Submit the form below to save your seat.
+		</div>
+		<div class="form">
+			<div id="already-done" class="hidden">
+				<h3>You're good to go!</h3>
+				<p>We have you #confirmed to go. If this changes, please contact team@knighthacks.org so we can free your spot.</p>
+			</div>
+			<div id="expired" class="hidden">
+				<h3>Oh dear...</h3>
+				<p>Some bad news. Your spot was not confirmed in time, so it's been dumped back into the lottery. If you're able to go and want to see if a spot is available, email team@knighthacks.org <b>asap</b> and we'll see if there's an opening.</p>
+			</div>
+			<div id="success" class="hidden">
+				<h3>Awesome!</h3>
+				<p>You are #confirmed to go to Knight Hacks!</p>
+				<p>If you can't make it, be sure to let us know so we can give your seat to someone else. Tell us at team@knighthacks.org</p>
+				<p>Now buckle up, hold on, and join <a href="https://www.facebook.com/groups/knighthacks" target="_blank">Knight Hacks Hackers!</a></p>
+			</div>
+			<div id="loader" class="hidden">
+				<h3>Saving response...</h3>
+				<div class='uil-pacman-css' style='-webkit-transform:scale(0.6)'><div><div></div></div><div><div></div></div><div><div></div></div></div>
+			</div>
+			<div id="form-content">
+				<h2>Hi there!</h2>
+				<div>
+					We think you are:
+					<p>{{ name }}</p>
+					<p>{{ email }}</p>
+					<p>If either of those are incorrect, please contact team@knighthacks.org</p>
+				</div>
+				<h2>T-shirts</h2>
+				<select id="tshirt">
+					<option disabled selected>T-shirt size</option>
+					<option>S</option>
+					<option>M</option>
+					<option>L</option>
+					<option>Women's fitted S</option>
+					<option>Women's fitted M</option>
+					<option>Women's fitted L</option>
+					<option>XL</option>
+					<option>XXL</option>
+					<option>XXXL</option>
+				</select>
+				<h2>Any dietary restrictions?</h2>
+				<div class="radio-item">
+					<input type="radio" name="dietary" id="dietary-1" value="0" onclick="updateDietary()">
+					<label for="dietary-1">No</label>
+				</div>
+				<div class="radio-item">
+					<input type="radio" name="dietary" id="dietary-2" value="1" onclick="updateDietary()">
+					<label for="dietary-2">Yes</label>
+					<input type="text" placeholder="Explain" id="dietary-explain"><br>
+				</div>
+				<h2>Transportation</h2>
+				<div class="radio-item">
+					<input type="radio" name="come-without-transport" id="transport-1" value="0">
+					<label for="transport-1">I can come without transportation</label>
+				</div>
+				<div class="radio-item">
+					<input type="radio" name="come-without-transport" id="transport-2" value="1">
+					<label for="transport-2">I require transportation to attend</label>
+				</div>
+				<h2>Share your resume! (optional)</h2>
+				<input type="file" id="resume-file">
+				<input type="text" id="url" placeholder="Link to website, resume, portfolio, etc.">
+				<h2>Almost there...</h2>
+				<div class="radio-item">
+					<input type="checkbox" id="agree" value="1">
+					<label for="agree">
+						I will at all times abide by and conform to the <a href="http://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">Major League Hacking Code of Conduct</a> while at the event.
+					</label>
+				</div>
+				<button class="submit" id="submit-form">Submit!</button>
+			</div>
+		</div>
+	</body>
+</html>
+
