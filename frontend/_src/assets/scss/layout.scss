@@ -198,6 +198,7 @@ footer[role=contentinfo] {
 }
 
 .single-page-registration-form {
+  max-width: 600px;
   transition: all 0.25s ease;
   &.success {
     opacity: 0;
@@ -226,4 +227,38 @@ footer[role=contentinfo] {
 
 .signup-page-registration {
   background: url('../img/space-bg.png');
+}
+
+#signUpModal {
+  .disclaimer {
+    color: #aaa;
+    font-size: 10px;
+    line-height: 14px;
+    margin-top: 20px;
+  }
+  .plain {
+    background: none;
+    border: none;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 10px;
+
+    span {
+      text-transform: none;
+      top: 20px;
+      position: relative;
+      margin-left: 10px;
+      vertical-align: top;
+      max-width: 500px;
+
+      &.invalid {
+        color: #ff0000;
+      }
+    }
+
+    input {
+      margin-top: -10px;
+      vertical-align: top;
+    }
+  }
 }
