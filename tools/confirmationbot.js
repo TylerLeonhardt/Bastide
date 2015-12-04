@@ -42,7 +42,8 @@ yield emails.map((function* (email) {
 	console.log("	Generating token");
 	shasum = crypto.createHash('sha1');
 	shasum.update(email + Math.random().toString(36));
-	token = (new Date).getTime().toString(36) + shasum.digest('hex');
+	token = (new Date).getTime().toString(36) + shasum.digest('hex') + (Math.floor((Math.random() * 100000))).toString(36);
+	console.log(token);
 
 	console.log("	Cross-referencing their info from the DB");
 	var signupResult = yield db.query("SELECT * FROM `signups` WHERE email = " + db.escape(email));
