@@ -55,6 +55,9 @@ label {
 	color: #444;
 	padding: 15px;
 }
+.inline {
+	display: inline;
+}
 button {
 	margin-top: 20px;
 }
