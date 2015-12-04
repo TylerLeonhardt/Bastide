@@ -22,13 +22,19 @@ var mandrill_send = function(message) {
 	return f;
 }
 var EMAIL_TEMPLATE = `
-Hi there! You've been approved to participate in Knight Hacks!
+Hi there! You've been accepted to participate in Knight Hacks!
 
-To confirm that you are able to go, please go to http://knighthacks.org/confirm/{{id}}/{{token}}. You *must* fill out this form in order to attend.
+To confirm that you are able to go, please go to http://knighthacks.org/confirm/{{id}}/{{token}}. You *must* fill out this form in order to attend! Also, this confirmation *must* be filled out within 3 days, or your spot will be reallocated into the lottery pool.
+
+One more time: you *must* confirm to attend, and you must do so in the next 3 days!
+
+Don't worry, it's super quick :)
 
 If you have any questions, do not hesistate to ask!
 
-Knight Hacks Team`;
+Happy Hacking!
+Knight Hacks Team
+`;
 var inputfile = fs.readFileSync("confirmation-list.csv").toString();
 var emails = inputfile.split("\n");
 
@@ -42,7 +48,8 @@ yield emails.map((function* (email) {
 	console.log("	Generating token");
 	shasum = crypto.createHash('sha1');
 	shasum.update(email + Math.random().toString(36));
-	token = (new Date).getTime().toString(36) + shasum.digest('hex');
+	token = (new Date).getTime().toString(36) + shasum.digest('hex') + (Math.floor((Math.random() * 100000))).toString(36);
+	console.log(token);
 
 	console.log("	Cross-referencing their info from the DB");
 	var signupResult = yield db.query("SELECT * FROM `signups` WHERE email = " + db.escape(email));
