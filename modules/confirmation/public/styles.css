@@ -492,3 +492,11 @@ width: 100%;
 .hidden.visible {
     display: block;
 }
+textarea {
+    display: block;
+    margin-top: 20px;
+    width: 90%;
+    padding: 10px;
+    border: solid 1px #aaa;
+    font-size: 20px;
+}

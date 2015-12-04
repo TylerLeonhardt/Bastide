@@ -30,7 +30,7 @@ var EMAIL_TEMPLATE = `
 
 Let us know if you can make it by clicking the big button below:<br><br>
 
-<div style="text-align:center;margin-bottom:20px;">
+<div style="text-align:center;margin-bottom:20px;display:block;margin-top:20px;">
 	<a href="http://knighthacks.org/confirm/{{id}}/{{token}}" style="padding: 20px 40px;background:#16a9c1;color:#fff;text-decoration:none;font-size:24px;">Yes, I'm going!</a>
 </div>
 
