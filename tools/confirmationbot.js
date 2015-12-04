@@ -22,18 +22,43 @@ var mandrill_send = function(message) {
 	return f;
 }
 var EMAIL_TEMPLATE = `
-Hi there! You've been accepted to participate in Knight Hacks!
+<div style="text-align: center">
+	<img src="https://knighthacks.org/api/confirm/logo/{{token}}" width="400px" style="max-width:90%" alt="Knight Hacks">
+</div>
 
-To confirm that you are able to go, please go to http://knighthacks.org/confirm/{{id}}/{{token}}. You *must* fill out this form in order to attend! Also, this confirmation *must* be filled out within 3 days, or your spot will be reallocated into the lottery pool.
+<b style="font-size: 20px">Great news: You've been accepted to participate in Knight Hacks!</b><br><br>
 
-One more time: you *must* confirm to attend, and you must do so in the next 3 days!
+Let us know if you can make it by clicking the big button below:<br><br>
 
-Don't worry, it's super quick :)
+<div style="text-align:center">
+	<a href="http://knighthacks.org/confirm/{{id}}/{{token}}" style="padding: 20px 40px;background:#16a9c1;color:#fff;text-decoration:none;font-size:24px;">Yes, I'm going!</a>
+</div>
 
-If you have any questions, do not hesistate to ask!
+<br>
+Or by using this long, boring, plaintext link:<br>
+http://knighthacks.org/confirm/{{id}}/{{token}}<br><br>
 
-Happy Hacking!
-Knight Hacks Team
+You <b>must</b> fill out this form <b>within 3 days</b> to attend! Otherwise, your spot will be reallocated into the lottery pool. Don't worry, it's super quick! :)<br><br>
+
+Once you've confirmed, be sure to check out <a href="https://www.facebook.com/groups/knighthacks">Knight Hacks Hackers</a> to chat with fellow attendees and organizers, form teams, and coordinate rides!
+
+If you have any questions, do not hesistate to ask!<br><br>
+
+Happy Hacking!<br>
+Knight Hacks Team<br><br>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "EmailMessage",
+  "potentialAction": {
+    "@type": "ViewAction",
+	"target": "https://knighthacks.org/register",
+    "name": "Confirm"
+  },
+  "description": "Confirm Knight Hacks Attendance"
+}
+</script>
 `;
 var inputfile = fs.readFileSync("confirmation-list.csv").toString();
 var emails = inputfile.split("\n");
@@ -62,12 +87,12 @@ yield emails.map((function* (email) {
 
 	console.log("	Sending Mandrill email");
 
-	var emailBody = EMAIL_TEMPLATE.replace("{{token}}", token).replace("{{id}}", query_results[0].insertId);
+	var emailBody = EMAIL_TEMPLATE.replace(/\{\{token\}\}/g, token).replace(/\{\{id\}\}/g, query_results[0].insertId);
 	var result = yield mandrill_send({
-		text: emailBody,
+		html: emailBody,
 		from_email: "team@knighthacks.org",
 		from_name: "Knight Hacks",
-		subject: "[Action Needed] You're going to Knight Hacks!",
+		subject: "[Action Needed] You're going to Knight Hacks! 🌃🖥",
 		to: [{
 			email: email,
 			type: 'to'
