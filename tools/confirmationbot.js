@@ -53,7 +53,7 @@ Knight Hacks Team<br><br>
   "@type": "EmailMessage",
   "potentialAction": {
     "@type": "ViewAction",
-	"target": "https://knighthacks.org/register",
+	"target": "https://knighthacks.org/confirm/{{id}}/{{token}}",
     "name": "Confirm"
   },
   "description": "Confirm Knight Hacks Attendance"
