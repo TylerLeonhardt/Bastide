@@ -46,9 +46,9 @@ yield emails.map((function* (email) {
 
 	console.log(email);
 	console.log("	Generating token");
-	shasum = crypto.createHash('sha1');
+	var shasum = crypto.createHash('sha1');
 	shasum.update(email + Math.random().toString(36));
-	token = (new Date).getTime().toString(36) + shasum.digest('hex') + (Math.floor((Math.random() * 100000))).toString(36);
+	var token = (new Date).getTime().toString(36) + shasum.digest('hex') + (Math.floor((Math.random() * 100000))).toString(36);
 	console.log(token);
 
 	console.log("	Cross-referencing their info from the DB");
