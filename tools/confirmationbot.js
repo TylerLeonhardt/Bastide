@@ -23,14 +23,14 @@ var mandrill_send = function(message) {
 }
 var EMAIL_TEMPLATE = `
 <div style="text-align: center">
-	<img src="https://knighthacks.org/api/confirm/logo/{{token}}" width="400px" style="max-width:90%" alt="Knight Hacks">
+	<img src="https://knighthacks.org/api/confirm/logo/{{token}}" width="400px" style="max-width:90%;margin-bottom:50px;" alt="Knight Hacks">
 </div>
 
-<b style="font-size: 20px">Great news: You've been accepted to participate in Knight Hacks!</b><br><br>
+<b style="font-size: 20px">Great news: You've been accepted to Knight Hacks!</b><br><br>
 
 Let us know if you can make it by clicking the big button below:<br><br>
 
-<div style="text-align:center">
+<div style="text-align:center;margin-bottom:20px;">
 	<a href="http://knighthacks.org/confirm/{{id}}/{{token}}" style="padding: 20px 40px;background:#16a9c1;color:#fff;text-decoration:none;font-size:24px;">Yes, I'm going!</a>
 </div>
 
