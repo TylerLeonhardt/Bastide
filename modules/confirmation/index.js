@@ -9,6 +9,7 @@ var fs = require('fs');
 module.exports = function(app) {
   app.use(route.post('/api/confirm', confirm));
   app.use(route.get('/confirm/:user_id/:token', confirm_page));
+  app.use(route.get('/api/confirm/logo/:token', has_seen_email));
   app.use(route.get('/api/confirm/csv/:key', get_csv));
 
   function _expired(result) {
@@ -81,6 +82,13 @@ module.exports = function(app) {
       this.body = null;
       this.status = 404;
     }
+  }
+
+  function *has_seen_email(token) {
+    var results = yield db.query("UPDATE `confirmations` SET has_seen_email = 1 WHERE token = " + db.escape(token));
+    results = results[0];
+
+    this.response.redirect("https://knighthacks.org/assets/img/logo.png");
   }
 };
 
